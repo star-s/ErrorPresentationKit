@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ErrorPresentationKit_Example' do
+  pod 'ErrorPresentationKit', :path => '../'
+
+  target 'ErrorPresentationKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
