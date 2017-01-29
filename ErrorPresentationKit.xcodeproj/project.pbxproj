@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		A55757F91E3E309400F70766 /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A55757FA1E3E309400F70766 /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */; };
+		A55757FD1E3E324100F70766 /* UIResponder+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = A55757FB1E3E324100F70766 /* UIResponder+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55757FE1E3E324100F70766 /* UIResponder+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = A55757FC1E3E324100F70766 /* UIResponder+ErrorPresentation.m */; };
+		A55758011E3E334900F70766 /* UIApplication+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = A55757FF1E3E334900F70766 /* UIApplication+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55758021E3E334900F70766 /* UIApplication+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = A55758001E3E334900F70766 /* UIApplication+ErrorPresentation.m */; };
 		A571D8A71E3E2B3B006FBD1C /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A571D8A51E3E2B3B006FBD1C /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPKRecoveryAgent.h; sourceTree = "<group>"; };
 		A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPKRecoveryAgent.m; sourceTree = "<group>"; };
+		A55757FB1E3E324100F70766 /* UIResponder+ErrorPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+ErrorPresentation.h"; sourceTree = "<group>"; };
+		A55757FC1E3E324100F70766 /* UIResponder+ErrorPresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ErrorPresentation.m"; sourceTree = "<group>"; };
+		A55757FF1E3E334900F70766 /* UIApplication+ErrorPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ErrorPresentation.h"; sourceTree = "<group>"; };
+		A55758001E3E334900F70766 /* UIApplication+ErrorPresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+ErrorPresentation.m"; sourceTree = "<group>"; };
 		A571D8A21E3E2B3B006FBD1C /* ErrorPresentationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ErrorPresentationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A571D8A51E3E2B3B006FBD1C /* ErrorPresentationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorPresentationKit.h; sourceTree = "<group>"; };
 		A571D8A61E3E2B3B006FBD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +44,10 @@
 			children = (
 				A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */,
 				A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */,
+				A55757FB1E3E324100F70766 /* UIResponder+ErrorPresentation.h */,
+				A55757FC1E3E324100F70766 /* UIResponder+ErrorPresentation.m */,
+				A55757FF1E3E334900F70766 /* UIApplication+ErrorPresentation.h */,
+				A55758001E3E334900F70766 /* UIApplication+ErrorPresentation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -75,6 +87,8 @@
 			files = (
 				A571D8A71E3E2B3B006FBD1C /* ErrorPresentationKit.h in Headers */,
 				A55757F91E3E309400F70766 /* EPKRecoveryAgent.h in Headers */,
+				A55758011E3E334900F70766 /* UIApplication+ErrorPresentation.h in Headers */,
+				A55757FD1E3E324100F70766 /* UIResponder+ErrorPresentation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55757FA1E3E309400F70766 /* EPKRecoveryAgent.m in Sources */,
+				A55758021E3E334900F70766 /* UIApplication+ErrorPresentation.m in Sources */,
+				A55757FE1E3E324100F70766 /* UIResponder+ErrorPresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
