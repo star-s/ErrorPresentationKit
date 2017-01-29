@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A55757E31E3E2B8800F70766 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = A55757E11E3E2B8800F70766 /* ReplaceMe.m */; };
+		A55757F91E3E309400F70766 /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55757FA1E3E309400F70766 /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */; };
 		A571D8A71E3E2B3B006FBD1C /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A571D8A51E3E2B3B006FBD1C /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A55757E11E3E2B8800F70766 /* ReplaceMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPKRecoveryAgent.h; sourceTree = "<group>"; };
+		A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPKRecoveryAgent.m; sourceTree = "<group>"; };
 		A571D8A21E3E2B3B006FBD1C /* ErrorPresentationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ErrorPresentationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A571D8A51E3E2B3B006FBD1C /* ErrorPresentationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorPresentationKit.h; sourceTree = "<group>"; };
 		A571D8A61E3E2B3B006FBD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,7 +34,8 @@
 		A55757DF1E3E2B8800F70766 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A55757E11E3E2B8800F70766 /* ReplaceMe.m */,
+				A55757F71E3E309400F70766 /* EPKRecoveryAgent.h */,
+				A55757F81E3E309400F70766 /* EPKRecoveryAgent.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -71,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A571D8A71E3E2B3B006FBD1C /* ErrorPresentationKit.h in Headers */,
+				A55757F91E3E309400F70766 /* EPKRecoveryAgent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 		A571D8991E3E2B3B006FBD1C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EPK;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Sergey Starukhin";
 				TargetAttributes = {
@@ -142,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55757E31E3E2B8800F70766 /* ReplaceMe.m in Sources */,
+				A55757FA1E3E309400F70766 /* EPKRecoveryAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
