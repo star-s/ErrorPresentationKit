@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/ErrorPresentationKit.svg?style=flat)](http://cocoapods.org/pods/ErrorPresentationKit)
 [![Platform](https://img.shields.io/cocoapods/p/ErrorPresentationKit.svg?style=flat)](http://cocoapods.org/pods/ErrorPresentationKit)
 
+It's born to be simple
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
