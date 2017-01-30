@@ -22,6 +22,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+#pragma mark - IBActions
+
 - (IBAction)doIt:(UIButton *)sender
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
@@ -33,11 +35,29 @@
     
     userInfo[NSRecoveryAttempterErrorKey] = [[EPKBlockRecoveryAgent alloc] initWithRecoveryBlock: ^BOOL(NSError *error, NSUInteger recoveryOptionIndex) {
         //
-        NSLog(@"You choose %@", error.localizedRecoveryOptions[recoveryOptionIndex]);
-        return NO;
+        NSString *option = error.localizedRecoveryOptions[recoveryOptionIndex];
+        NSLog(@"You choose %@", option);
+        return ![@"No" isEqualToString: option];
     }];
     NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: userInfo];
-    [self presentError: error];
+    
+    [self presentError: error
+              delegate: self
+    didPresentSelector: @selector(didPresentErrorWithRecovery:contextInfo:)
+           contextInfo: (__bridge void *)(sender)];
+}
+
+#pragma mark -
+
+- (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo
+{
+    UIButton *button = (__bridge UIButton *)(contextInfo);
+    
+    if (didRecover) {
+        [button setTitle: @"Do it again!" forState: UIControlStateNormal];
+    } else {
+        [button setEnabled: NO];
+    }
 }
 
 @end

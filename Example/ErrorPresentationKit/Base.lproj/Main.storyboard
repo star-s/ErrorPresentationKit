@@ -24,6 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFA-Cs-l56">
                                 <rect key="frame" x="168.5" y="318" width="37" height="30"/>
                                 <state key="normal" title="Do it!"/>
+                                <state key="disabled" title="Enough!"/>
                                 <connections>
                                     <action selector="doIt:" destination="whP-gf-Uak" eventType="touchUpInside" id="PY3-k0-xR6"/>
                                 </connections>
