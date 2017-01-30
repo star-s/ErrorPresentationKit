@@ -1,0 +1,16 @@
+PODS:
+  - ErrorPresentationKit (0.1.0)
+
+DEPENDENCIES:
+  - ErrorPresentationKit (from `../`)
+
+EXTERNAL SOURCES:
+  ErrorPresentationKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ErrorPresentationKit: 27cf33ce4744271ab6c7b726b44cd4b1a61aa05f
+
+PODFILE CHECKSUM: 8aeeb32d0a35b38a3a5036026d3d276e6143c36d
+
+COCOAPODS: 1.1.1

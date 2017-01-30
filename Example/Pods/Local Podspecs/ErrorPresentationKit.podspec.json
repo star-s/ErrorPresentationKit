@@ -1,0 +1,22 @@
+{
+  "name": "ErrorPresentationKit",
+  "version": "0.1.0",
+  "summary": "A short description of ErrorPresentationKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ErrorPresentationKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sergey Starukhin": "star.s@me.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ErrorPresentationKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ErrorPresentationKit/Classes/**/*"
+}
