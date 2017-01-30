@@ -8,6 +8,8 @@
 
 #import "EPViewController.h"
 
+@import ErrorPresentationKit;
+
 @interface EPViewController ()
 
 @end
@@ -20,10 +22,22 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)doIt:(UIButton *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    
+    userInfo[NSLocalizedDescriptionKey] = @"Something went wrong";
+    userInfo[NSLocalizedRecoverySuggestionErrorKey] = @"please try again";
+    
+    userInfo[NSLocalizedRecoveryOptionsErrorKey] = @[@"Yes", @"No", @"Maybe"];
+    
+    userInfo[NSRecoveryAttempterErrorKey] = [[EPKBlockRecoveryAgent alloc] initWithRecoveryBlock: ^BOOL(NSError *error, NSUInteger recoveryOptionIndex) {
+        //
+        NSLog(@"You choose %@", error.localizedRecoveryOptions[recoveryOptionIndex]);
+        return NO;
+    }];
+    NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: userInfo];
+    [self presentError: error];
 }
 
 @end
