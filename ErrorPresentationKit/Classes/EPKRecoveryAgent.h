@@ -10,13 +10,11 @@
 
 @interface EPKAbstractRecoveryAgent : NSObject
 
-- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex;
-
-- (void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo;
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex contextInfo:(void **)contextInfo;
 
 @end
 
-typedef BOOL(^EPKRecoveryBlock)(NSError *error, NSUInteger recoveryOptionIndex);
+typedef BOOL(^EPKRecoveryBlock)(NSError *error, NSUInteger recoveryOptionIndex, void **contextInfo);
 
 @interface EPKBlockRecoveryAgent : EPKAbstractRecoveryAgent
 

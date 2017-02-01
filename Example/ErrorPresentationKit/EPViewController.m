@@ -31,32 +31,45 @@
     userInfo[NSLocalizedDescriptionKey] = @"Something went wrong";
     userInfo[NSLocalizedRecoverySuggestionErrorKey] = @"please try again";
     
-    userInfo[NSLocalizedRecoveryOptionsErrorKey] = @[@"Yes", @"No", @"Maybe"];
+    userInfo[NSLocalizedRecoveryOptionsErrorKey] = @[@"Try", @"Stop trying"];
     
-    userInfo[NSRecoveryAttempterErrorKey] = [[EPKBlockRecoveryAgent alloc] initWithRecoveryBlock: ^BOOL(NSError *error, NSUInteger recoveryOptionIndex) {
+    userInfo[NSRecoveryAttempterErrorKey] = [[EPKBlockRecoveryAgent alloc] initWithRecoveryBlock: ^BOOL(NSError *error, NSUInteger recoveryOptionIndex, void **context) {
         //
         NSString *option = error.localizedRecoveryOptions[recoveryOptionIndex];
+        
         NSLog(@"You choose %@", option);
-        return ![@"No" isEqualToString: option];
+        
+        BOOL result = [@"Stop trying" isEqualToString: option];
+        
+        if (context && !result) {
+            *context = (__bridge void *)error;
+        }
+        return result;
     }];
     NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: userInfo];
     
     [self presentError: error
               delegate: self
     didPresentSelector: @selector(didPresentErrorWithRecovery:contextInfo:)
-           contextInfo: (__bridge void *)(sender)];
+           contextInfo: NULL];
 }
 
 #pragma mark -
 
 - (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo
 {
-    UIButton *button = (__bridge UIButton *)(contextInfo);
+    NSError *recoveryError = (__bridge NSError *)(contextInfo);
     
     if (didRecover) {
-        [button setTitle: @"Do it again!" forState: UIControlStateNormal];
+        //
+        NSLog(@"Error recovered!");
+        
+    } else if ([recoveryError isKindOfClass: [NSError class]]) {
+        //
+        [self presentError: recoveryError delegate: self didPresentSelector: _cmd contextInfo: contextInfo];
+        
     } else {
-        [button setEnabled: NO];
+        NSLog(@"Error not recovered!");
     }
 }
 

@@ -10,14 +10,19 @@
 
 @implementation EPKAbstractRecoveryAgent
 
-- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex contextInfo:(void **)contextInfo
 {
     return NO;
 }
 
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex
+{
+    return [self attemptRecoveryFromError: error optionIndex: recoveryOptionIndex contextInfo: NULL];
+}
+
 - (void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo
 {
-    BOOL recoveryResult = [self attemptRecoveryFromError: error optionIndex: recoveryOptionIndex];
+    BOOL recoveryResult = [self attemptRecoveryFromError: error optionIndex: recoveryOptionIndex contextInfo: &contextInfo];
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didRecoverSelector]];
     
@@ -33,23 +38,18 @@
 
 @implementation EPKBlockRecoveryAgent
 
-- (instancetype)init
-{
-    return [self initWithRecoveryBlock: nil];
-}
-
 - (instancetype)initWithRecoveryBlock:(EPKRecoveryBlock)block
 {
     self = [super init];
     if (self) {
-        _recoveryBlock = block ? [block copy] : [^(NSError *error, NSUInteger idx){ return NO; } copy];
+        _recoveryBlock = [block copy];
     }
     return self;
 }
 
-- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex contextInfo:(void **)contextInfo
 {
-    return self.recoveryBlock(error, recoveryOptionIndex);
+    return self.recoveryBlock ? self.recoveryBlock(error, recoveryOptionIndex, contextInfo) : NO;
 }
 
 @end
