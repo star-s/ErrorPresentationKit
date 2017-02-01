@@ -10,6 +10,31 @@
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
 
+@interface NSError (CheckForCancel)
+
+- (BOOL)epk_isCancelError;
+
+@end
+
+@implementation NSError (CheckForCancel)
+
+- (BOOL)epk_isCancelError
+{
+    BOOL result = NO;
+    
+    if ([self.domain isEqualToString: NSCocoaErrorDomain]) {
+        //
+        result = self.code == NSUserCancelledError;
+        
+    } else if ([self.domain isEqualToString: NSURLErrorDomain]) {
+        
+        result = self.code == NSURLErrorCancelled;
+    }
+    return result;
+}
+
+@end
+
 @implementation UIApplication (ErrorPresentation)
 
 - (NSError *)willPresentError:(NSError *)error
@@ -24,7 +49,7 @@
     } else {
         theErrorToPresent = [super willPresentError: error];
     }
-    return theErrorToPresent;
+    return [theErrorToPresent epk_isCancelError] ? nil : theErrorToPresent;
 }
 
 - (void)presentError:(NSError *)anError
