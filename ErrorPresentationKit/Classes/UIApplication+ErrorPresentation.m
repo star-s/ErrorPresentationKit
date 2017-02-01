@@ -10,34 +10,6 @@
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
 
-@interface EPKAlertAction : UIAlertAction
-
-@property (nonatomic, readonly) NSInteger index;
-
-+ (instancetype)actionWithTitle:(nullable NSString *)title index:(NSInteger)idx handler:(void (^ __nullable)(EPKAlertAction *action))handler;
-
-@end
-
-@implementation EPKAlertAction
-
-+ (instancetype)actionWithTitle:(NSString *)title index:(NSInteger)idx handler:(void (^)(EPKAlertAction *))handler
-{
-    EPKAlertAction *result = [self actionWithTitle: title
-                                             style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                           handler: (void (^ __nullable)(UIAlertAction *action))handler];
-    result->_index = idx;
-    return result;
-}
-
-- (id)copyWithZone:(nullable NSZone *)zone
-{
-    EPKAlertAction *result = [super copyWithZone: zone];
-    result->_index = self.index;
-    return result;
-}
-
-@end
-
 @implementation UIApplication (ErrorPresentation)
 
 - (NSError *)willPresentError:(NSError *)error
@@ -71,37 +43,38 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: recoverer ? theErrorToPresent.localizedRecoverySuggestion : nil
                                                                 preferredStyle: UIAlertControllerStyleAlert];
-        void (^alertAction)(EPKAlertAction *);
         
-        if (delegate) {
+        if (recoverer == nil) {
+            recoverer = [[EPKAbstractRecoveryAgent alloc] init];
+        }
+        void (^actionHandler)(UIAlertAction *) = ^(UIAlertAction *action){
             //
-            if (recoverer == nil) {
-                recoverer = [[EPKAbstractRecoveryAgent alloc] init];
-            }
-            alertAction = ^(EPKAlertAction *action){
+            NSInteger optionIndex = [theErrorToPresent.localizedRecoveryOptions indexOfObject: action.title];
+            
+            if (delegate) {
                 //
                 [recoverer attemptRecoveryFromError: theErrorToPresent
-                                        optionIndex: action.index
+                                        optionIndex: optionIndex
                                            delegate: delegate
                                  didRecoverSelector: didPresentSelector
                                         contextInfo: contextInfo];
-            };
-        } else {
-            //
-            alertAction = ^(EPKAlertAction *action){
+            } else {
                 //
                 [recoverer attemptRecoveryFromError: theErrorToPresent
-                                        optionIndex: action.index];
-            };
-        }
+                                        optionIndex: optionIndex];
+            }
+        };
         [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
             //
-            [alert addAction: [EPKAlertAction actionWithTitle: title index: idx handler: alertAction]];
+            UIAlertAction *action = [UIAlertAction actionWithTitle: title
+                                                             style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
+                                                           handler: actionHandler];
+            [alert addAction: action];
         }];
         
         if (alert.actions.count == 0) {
             //
-            [alert addAction: [EPKAlertAction actionWithTitle: @"OK" index: 0 handler: alertAction]];
+            [alert addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler: actionHandler]];
         }
         [self.keyWindow.rootViewController presentViewController: alert animated: YES completion: NULL];
     }
