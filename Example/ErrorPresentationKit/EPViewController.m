@@ -47,7 +47,7 @@
         [agent addRecoveryOption: [EPKBlockRecoveryOption recoveryOptionWithTitle: @"Try" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
             //
             if (contextInfo) {
-                *contextInfo = (__bridge void *)error;
+                *contextInfo = (__bridge_retained void *)error;
             }
             return NO;
         }]];
