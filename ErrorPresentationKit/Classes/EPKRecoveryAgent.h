@@ -8,18 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EPKAbstractRecoveryAgent : NSObject
+@class EPKRecoveryOption;
 
-- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex contextInfo:(void **)contextInfo;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface EPKRecoveryAgent : NSObject
+
+@property (nullable, readonly, copy) NSString *recoverySuggestion;
+@property (nullable, readonly) NSArray <NSString *> *recoveryOptionsTitles;
+
+@property (nonatomic, strong) NSArray <__kindof EPKRecoveryOption *> *options;
+
+- (instancetype)initWithRecoverySuggestion:(NSString *)suggestion;
+
+- (void)addRecoveryOption:(EPKRecoveryOption *)option;
 
 @end
 
-typedef BOOL(^EPKRecoveryBlock)(NSError *error, NSUInteger recoveryOptionIndex, void **contextInfo);
+@interface NSError (RecoveryAgentInjection)
 
-@interface EPKBlockRecoveryAgent : EPKAbstractRecoveryAgent
-
-@property (nonatomic, copy, readonly) EPKRecoveryBlock recoveryBlock;
-
-- (instancetype)initWithRecoveryBlock:(EPKRecoveryBlock)block;
+- (NSError *)errorWithAdditionRecoveryAgent:(EPKRecoveryAgent *)agent;
 
 @end
+
+NS_ASSUME_NONNULL_END

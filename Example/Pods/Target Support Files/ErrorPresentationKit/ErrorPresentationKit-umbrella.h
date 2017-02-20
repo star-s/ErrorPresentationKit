@@ -3,6 +3,7 @@
 #endif
 
 #import "EPKRecoveryAgent.h"
+#import "EPKRecoveryOption.h"
 #import "UIApplication+ErrorPresentation.h"
 #import "UIResponder+ErrorPresentation.h"
 

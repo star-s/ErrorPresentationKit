@@ -1,9 +1,9 @@
 {
   "name": "ErrorPresentationKit",
   "version": "0.1.0",
-  "summary": "A short description of ErrorPresentationKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/ErrorPresentationKit",
+  "summary": "iOS implementation of the error handling mechanisms available in the macOS",
+  "description": "iOS implementation of the error handling mechanisms available in the macOS.\nIt covers error object presentation and recovery as described in Error Handling Programming Guide For Cocoa.",
+  "homepage": "https://github.com/star-s/ErrorPresentationKit",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Sergey Starukhin": "star.s@me.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/ErrorPresentationKit.git",
+    "git": "https://github.com/star-s/ErrorPresentationKit.git",
     "tag": "0.1.0"
   },
   "platforms": {

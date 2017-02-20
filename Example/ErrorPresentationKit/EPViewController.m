@@ -26,27 +26,7 @@
 
 - (IBAction)doIt:(UIButton *)sender
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    
-    userInfo[NSLocalizedDescriptionKey] = @"Something went wrong";
-    userInfo[NSLocalizedRecoverySuggestionErrorKey] = @"please try again";
-    
-    userInfo[NSLocalizedRecoveryOptionsErrorKey] = @[@"Try", @"Stop trying"];
-    
-    userInfo[NSRecoveryAttempterErrorKey] = [[EPKBlockRecoveryAgent alloc] initWithRecoveryBlock: ^BOOL(NSError *error, NSUInteger recoveryOptionIndex, void **context) {
-        //
-        NSString *option = error.localizedRecoveryOptions[recoveryOptionIndex];
-        
-        NSLog(@"You choose %@", option);
-        
-        BOOL result = [@"Stop trying" isEqualToString: option];
-        
-        if (context && !result) {
-            *context = (__bridge void *)error;
-        }
-        return result;
-    }];
-    NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: userInfo];
+    NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: @{NSLocalizedDescriptionKey: @"Something went wrong"}];
     
     [self presentError: error
               delegate: self
@@ -55,6 +35,34 @@
 }
 
 #pragma mark -
+
+- (NSError *)willPresentError:(NSError *)error
+{
+    NSError *result = nil;
+    
+    if ([error.domain isEqualToString: NSStringFromClass(self.class)]) {
+        //
+        EPKRecoveryAgent *agent = [[EPKRecoveryAgent alloc] initWithRecoverySuggestion: @"please try again"];
+        
+        [agent addRecoveryOption: [EPKBlockRecoveryOption recoveryOptionWithTitle: @"Try" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
+            //
+            if (contextInfo) {
+                *contextInfo = (__bridge void *)error;
+            }
+            return NO;
+        }]];
+        
+        [agent addRecoveryOption: [EPKBlockRecoveryOption recoveryOptionWithTitle: @"Stop trying" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
+            //
+            return YES;
+        }]];
+        
+        result = [error errorWithAdditionRecoveryAgent: agent];
+    } else {
+        result = [super willPresentError: error];
+    }
+    return result;
+}
 
 - (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo
 {
