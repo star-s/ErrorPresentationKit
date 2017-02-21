@@ -15,11 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EPKRecoveryAgent : NSObject
 
 @property (nullable, readonly, copy) NSString *recoverySuggestion;
-@property (nullable, readonly) NSArray <NSString *> *recoveryOptionsTitles;
 
-@property (nonatomic, strong) NSArray <__kindof EPKRecoveryOption *> *options;
+@property (nonatomic, readonly) NSArray <NSString *> *recoveryOptionsTitles;
 
-- (instancetype)initWithRecoverySuggestion:(NSString *)suggestion;
+- (instancetype)initWithRecoverySuggestion:(NSString * _Nullable)suggestion;
 
 - (void)addRecoveryOption:(EPKRecoveryOption *)option;
 

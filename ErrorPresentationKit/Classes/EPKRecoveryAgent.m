@@ -26,6 +26,12 @@
 
 @end
 
+@interface EPKRecoveryAgent ()
+
+@property (nonatomic, readonly) NSArray <__kindof EPKRecoveryOption *> *options;
+
+@end
+
 @implementation EPKRecoveryAgent
 
 - (instancetype)init

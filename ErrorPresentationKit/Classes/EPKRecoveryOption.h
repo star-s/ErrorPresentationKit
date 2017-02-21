@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTitle:(NSString *)title;
 
-- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo;
+- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void * _Nullable * _Nullable)contextInfo;
 
 @end
 
-typedef BOOL(^EPKRecoveryBlock)(NSError *error, void **contextInfo);
+typedef BOOL(^EPKRecoveryBlock)(NSError *error, void * _Nullable * _Nullable contextInfo);
 
 @interface EPKBlockRecoveryOption : EPKRecoveryOption
 
