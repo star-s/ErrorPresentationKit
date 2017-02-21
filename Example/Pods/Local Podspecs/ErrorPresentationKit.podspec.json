@@ -18,5 +18,6 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ErrorPresentationKit/Classes/**/*"
+  "source_files": "ErrorPresentationKit/Classes/**/*",
+  "module_map": "ErrorPresentationKit/ErrorPresentationKit.modulemap"
 }

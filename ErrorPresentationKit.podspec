@@ -40,4 +40,6 @@ It covers error object presentation and recovery as described in Error Handling 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.module_map = 'ErrorPresentationKit/ErrorPresentationKit.modulemap'
+
 end
