@@ -1,5 +1,5 @@
 PODS:
-  - ErrorPresentationKit (0.2.0)
+  - ErrorPresentationKit (0.2.1)
 
 DEPENDENCIES:
   - ErrorPresentationKit (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ErrorPresentationKit: 7b62114789654dab212a8163d579eed9b6c3d99d
+  ErrorPresentationKit: 97b50610b8f3a0bc9c94177264ec4705cf1fb40f
 
 PODFILE CHECKSUM: 8aeeb32d0a35b38a3a5036026d3d276e6143c36d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1
