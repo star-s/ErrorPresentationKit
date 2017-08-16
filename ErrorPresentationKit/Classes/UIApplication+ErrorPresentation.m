@@ -118,7 +118,11 @@
             
             [alert addAction: [UIAlertAction actionWithTitle: defaultOption.title style: UIAlertActionStyleCancel handler: handler]];
         }
-        [self.keyWindow.rootViewController presentViewController: alert animated: YES completion: NULL];
+        UIViewController *presenter = self.delegate.window.rootViewController;
+        while (presenter.presentedViewController) {
+            presenter = presenter.presentedViewController;
+        }
+        [presenter presentViewController: alert animated: YES completion: NULL];
     }
 }
 
