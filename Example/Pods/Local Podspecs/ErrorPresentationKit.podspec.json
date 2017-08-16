@@ -1,6 +1,6 @@
 {
   "name": "ErrorPresentationKit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "summary": "iOS implementation of the error handling mechanisms available in the macOS",
   "description": "iOS implementation of the error handling mechanisms available in the macOS.\nIt covers error object presentation and recovery as described in Error Handling Programming Guide For Cocoa.",
   "homepage": "https://github.com/star-s/ErrorPresentationKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/star-s/ErrorPresentationKit.git",
-    "tag": "0.2.1"
+    "tag": "0.2.2"
   },
   "platforms": {
     "ios": "8.0",
