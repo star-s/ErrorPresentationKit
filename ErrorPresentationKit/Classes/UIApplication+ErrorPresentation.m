@@ -69,15 +69,13 @@
         
         [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
             //
-            void (^actionHandler)(UIAlertAction *) = ^(UIAlertAction *action){
-                //
-                id recoverer = [theErrorToPresent recoveryAttempter];
-                result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
-                jobsDone = YES;
-            };
             UIAlertAction *action = [UIAlertAction actionWithTitle: title
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                                           handler: actionHandler];
+                                                           handler: ^(UIAlertAction *action){
+                                                               id recoverer = [theErrorToPresent recoveryAttempter];
+                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
+                                                               jobsDone = YES;
+                                                           }];
             [alert addAction: action];
         }];
         
@@ -86,11 +84,13 @@
             EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
             [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
 
-            void (^handler)(UIAlertAction *action) = ^(UIAlertAction *action){
-                result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
-                jobsDone = YES;
-            };
-            [alert addAction: [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject style: UIAlertActionStyleCancel handler: handler]];
+            UIAlertAction *action = [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
+                                                             style: UIAlertActionStyleCancel
+                                                           handler: ^(UIAlertAction *action){
+                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
+                                                               jobsDone = YES;
+                                                           }];
+            [alert addAction: action];
         }
         UIViewController *presenter = self.delegate.window.rootViewController;
         while (presenter.presentedViewController) {
@@ -118,19 +118,16 @@
         
         [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
             //
-            void (^actionHandler)(UIAlertAction *) = ^(UIAlertAction *action){
-                //
-                id recoverer = [theErrorToPresent recoveryAttempter];
-                
-                [recoverer attemptRecoveryFromError: theErrorToPresent
-                                        optionIndex: idx
-                                           delegate: delegate
-                                 didRecoverSelector: didPresentSelector
-                                        contextInfo: contextInfo];
-            };
             UIAlertAction *action = [UIAlertAction actionWithTitle: title
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                                           handler: actionHandler];
+                                                           handler: ^(UIAlertAction *action){
+                                                               id recoverer = [theErrorToPresent recoveryAttempter];
+                                                               [recoverer attemptRecoveryFromError: theErrorToPresent
+                                                                                       optionIndex: idx
+                                                                                          delegate: delegate
+                                                                                didRecoverSelector: didPresentSelector
+                                                                                       contextInfo: contextInfo];
+                                                           }];
             [alert addAction: action];
         }];
         
@@ -139,15 +136,16 @@
             EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
             [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
             
-            void (^handler)(UIAlertAction *action) = ^(UIAlertAction *action){
-                //
-                [recoverer attemptRecoveryFromError: theErrorToPresent
-                                        optionIndex: 0
-                                           delegate: delegate
-                                 didRecoverSelector: didPresentSelector
-                                        contextInfo: contextInfo];
-            };
-            [alert addAction: [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject style: UIAlertActionStyleCancel handler: handler]];
+            UIAlertAction *action =  [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
+                                                              style: UIAlertActionStyleCancel
+                                                            handler: ^(UIAlertAction *action){
+                                                                [recoverer attemptRecoveryFromError: theErrorToPresent
+                                                                                        optionIndex: 0
+                                                                                           delegate: delegate
+                                                                                 didRecoverSelector: didPresentSelector
+                                                                                        contextInfo: contextInfo];
+                                                            }];
+            [alert addAction: action];
         }
         UIViewController *presenter = self.delegate.window.rootViewController;
         while (presenter.presentedViewController) {
@@ -156,15 +154,17 @@
         [presenter presentViewController: alert animated: YES completion: NULL];
     } else {
         //
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didPresentSelector]];
+        EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
+        [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
         
-        [invocation setSelector: didPresentSelector];
-        
-        BOOL recoveryResult = NO;
-        [invocation setArgument: &recoveryResult atIndex: 2];
-        [invocation setArgument: &contextInfo    atIndex: 3];
-        
-        [invocation performSelector: @selector(invokeWithTarget:) withObject: delegate afterDelay: 0.0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //
+            [recoverer attemptRecoveryFromError: theErrorToPresent
+                                    optionIndex: 0
+                                       delegate: delegate
+                             didRecoverSelector: didPresentSelector
+                                    contextInfo: contextInfo];
+        });
     }
 }
 
