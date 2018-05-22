@@ -61,6 +61,12 @@
 
 @end
 
+@interface EPKBlockRecoveryOption ()
+
+@property (atomic, getter=isRecoveryComplete) BOOL recoveryComplete;
+
+@end
+
 @implementation EPKBlockRecoveryOption
 
 + (instancetype)recoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
@@ -99,15 +105,15 @@
     if (self.backgroundExecute) {
         //
         __block BOOL result = NO;
-        __block BOOL jobsDone = NO;
+        [self setRecoveryComplete: NO];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             result = self.recoveryBlock(error, contextInfo);
-            jobsDone = YES;
+            [self setRecoveryComplete: YES];
         });
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
         do {
-            NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
             [runLoop runMode: runLoop.currentMode beforeDate: [NSDate dateWithTimeIntervalSinceNow: 1.0]];
-        } while (!jobsDone);
+        } while (![self isRecoveryComplete]);
         return result;
     } else {
         return self.recoveryBlock(error, contextInfo);
