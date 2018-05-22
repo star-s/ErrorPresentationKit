@@ -50,17 +50,18 @@
     } else {
         theErrorToPresent = [super willPresentError: error];
     }
-    return [theErrorToPresent epk_isCancelError] ? nil : theErrorToPresent;
+    return theErrorToPresent;
 }
 
 - (BOOL)presentError:(NSError *)anError
 {
     __block BOOL result = NO;
-    __block BOOL jobsDone = NO;
 
     NSError *theErrorToPresent = [self willPresentError: anError];
     
-    if (theErrorToPresent) {
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
+        
+        __block BOOL jobsDone = NO;
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
@@ -89,7 +90,6 @@
                 result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
                 jobsDone = YES;
             };
-            
             [alert addAction: [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject style: UIAlertActionStyleCancel handler: handler]];
         }
         UIViewController *presenter = self.delegate.window.rootViewController;
@@ -110,7 +110,7 @@
 {
     NSError *theErrorToPresent = [self willPresentError: error];
     
-    if (theErrorToPresent) {
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
@@ -155,7 +155,7 @@
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
     } else {
-        
+        //
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didPresentSelector]];
         
         [invocation setSelector: didPresentSelector];
