@@ -68,6 +68,11 @@
     return [[self alloc] initWithTitle: title recoveryBlock: block];
 }
 
++ (instancetype)backgroundRecoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
+{
+    return [[self alloc] initWithTitle: title recoveryBlock: block backgroundExecute: YES];
+}
+
 - (instancetype)initWithTitle:(NSString *)title
 {
     return [self initWithTitle: title recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) { return NO; }];
@@ -75,18 +80,38 @@
 
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
 {
+    return [self initWithTitle: title recoveryBlock: block backgroundExecute: NO];
+}
+
+- (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block backgroundExecute:(BOOL)background
+{
     NSParameterAssert(block != nil);
     self = [super initWithTitle: title];
     if (self) {
-        //
         _recoveryBlock = [block copy];
+        _backgroundExecute = background;
     }
     return self;
 }
 
 - (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
 {
-    return self.recoveryBlock(error, contextInfo);
+    if (self.backgroundExecute) {
+        //
+        __block BOOL result = NO;
+        __block BOOL jobsDone = NO;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            result = self.recoveryBlock(error, contextInfo);
+            jobsDone = YES;
+        });
+        do {
+            NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+            [runLoop runMode: runLoop.currentMode beforeDate: [NSDate dateWithTimeIntervalSinceNow: 1.0]];
+        } while (!jobsDone);
+        return result;
+    } else {
+        return self.recoveryBlock(error, contextInfo);
+    }
 }
 
 @end
