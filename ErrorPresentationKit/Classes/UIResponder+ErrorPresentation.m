@@ -15,13 +15,14 @@
     return error;
 }
 
-- (void)presentError:(NSError *)anError
+- (BOOL)presentError:(NSError *)anError
 {
     NSError *theErrorToPresent = [self willPresentError: anError];
     
     if (theErrorToPresent) {
-        [self.nextResponder presentError: theErrorToPresent];
+        return [self.nextResponder presentError: theErrorToPresent];
     }
+    return NO;
 }
 
 - (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo

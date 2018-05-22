@@ -12,8 +12,8 @@
 
 - (NSError *)willPresentError:(NSError *)error;
 
-- (void)presentError:(NSError *)anError;
+- (BOOL)presentError:(NSError *)anError;
 
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo;
+- (void)presentError:(NSError *)error delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo;
 
 @end
