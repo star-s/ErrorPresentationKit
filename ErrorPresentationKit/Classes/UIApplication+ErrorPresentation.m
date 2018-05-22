@@ -146,7 +146,6 @@
                                            delegate: delegate
                                  didRecoverSelector: didPresentSelector
                                         contextInfo: contextInfo];
-
             };
             [alert addAction: [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject style: UIAlertActionStyleCancel handler: handler]];
         }
@@ -155,6 +154,17 @@
             presenter = presenter.presentedViewController;
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
+    } else {
+        
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didPresentSelector]];
+        
+        [invocation setSelector: didPresentSelector];
+        
+        BOOL recoveryResult = NO;
+        [invocation setArgument: &recoveryResult atIndex: 2];
+        [invocation setArgument: &contextInfo    atIndex: 3];
+        
+        [invocation performSelector: @selector(invokeWithTarget:) withObject: delegate afterDelay: 0.0];
     }
 }
 

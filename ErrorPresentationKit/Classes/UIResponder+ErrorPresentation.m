@@ -17,21 +17,15 @@
 
 - (BOOL)presentError:(NSError *)anError
 {
-    NSError *theErrorToPresent = [self willPresentError: anError];
-    
-    if (theErrorToPresent) {
-        return [self.nextResponder presentError: theErrorToPresent];
-    }
-    return NO;
+    return [self.nextResponder presentError: [self willPresentError: anError]];
 }
 
 - (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
 {
-    NSError *theErrorToPresent = [self willPresentError: error];
-    
-    if (theErrorToPresent) {
-        [self.nextResponder presentError: theErrorToPresent delegate: delegate didPresentSelector: didPresentSelector contextInfo: contextInfo];
-    }
+    [self.nextResponder presentError: [self willPresentError: error]
+                            delegate: delegate
+                  didPresentSelector: didPresentSelector
+                         contextInfo: contextInfo];
 }
 
 @end
