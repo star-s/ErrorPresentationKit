@@ -8,6 +8,26 @@
 
 #import "EPKRecoveryOption.h"
 
+@implementation EPKAbstractRecoveryOption
+
+- (instancetype)initWithTitle:(NSString *)title
+{
+    NSParameterAssert(title.length > 0);
+    self = [super init];
+    if (self) {
+        _title = [title copy];
+    }
+    return self;
+}
+
+- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
+{
+    [NSException raise: NSInvalidArgumentException format: @"*** -%@ only defined for abstract class. Define %s!", NSStringFromSelector(_cmd), __PRETTY_FUNCTION__];
+    return NO;
+}
+
+@end
+
 @implementation EPKRecoveryOption
 
 + (instancetype)okRecoveryOption
@@ -22,17 +42,21 @@
 
 - (instancetype)initWithTitle:(NSString *)title
 {
-    NSParameterAssert(title.length > 0);
-    self = [super init];
+    return [self initWithTitle: title recoveryResult: NO];
+}
+
+- (instancetype)initWithTitle:(NSString *)title recoveryResult:(BOOL)result
+{
+    self = [super initWithTitle: title];
     if (self) {
-        _title = [title copy];
+        _recoveryResult = result;
     }
     return self;
 }
 
 - (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
 {
-    return NO;
+    return self.recoveryResult;
 }
 
 @end

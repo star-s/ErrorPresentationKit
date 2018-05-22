@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class EPKRecoveryOption;
+@class EPKAbstractRecoveryOption;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithRecoverySuggestion:(NSString * _Nullable)suggestion;
 
-- (void)addRecoveryOption:(EPKRecoveryOption *)option;
+- (void)addRecoveryOption:(EPKAbstractRecoveryOption *)option;
 
 @end
 
