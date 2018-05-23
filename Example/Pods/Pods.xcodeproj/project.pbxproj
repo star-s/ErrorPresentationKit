@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		005D304BE43377A7D11501359C3658C7 /* Pods-ErrorPresentationKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9269D0BBE76D6BD44F08ED339D88945F /* Pods-ErrorPresentationKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E9456F0E4D5581C97CF5985AE53233F /* UIApplication+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = BD151D3F7CB7D122116545FCE350B66C /* UIApplication+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		022CED59F39E60393F752D3DAD65F405 /* UIResponder+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF3E406A42F7B5A4E8452C80A7BB17F /* UIResponder+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0513E25C16DED5B3D5DC1C9ABEE19BF9 /* EPKRecoveryOption.m in Sources */ = {isa = PBXBuildFile; fileRef = E78964CB0D1384DEBE7AFD201C0FFC47 /* EPKRecoveryOption.m */; };
 		0F2871DD8EC4DFD2AB4C39E14DA72674 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		22CCB29CB8959CB274D4C0B4F670E5BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		4A08ED8D16FB8F8F1C65CBF465986B7B /* UIApplication+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E240281340F284FBE2715A0E71CB2D9 /* UIApplication+ErrorPresentation.m */; };
-		54D42548C84B256CB2FFF62D20A039EA /* EPKRecoveryOption.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D532205E04C728CE5EA0725211565 /* EPKRecoveryOption.m */; };
-		55FEACA1F9010C084E37350783A4DF9F /* UIResponder+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C70A059FEBD1012F04EA1ADB5BD3031 /* UIResponder+ErrorPresentation.m */; };
+		13029E23D6666DEEA26A55AC18532B3B /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = CAA5598D45DCF804865F5A09C7DAF242 /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19CAF4A1B9D5808E13D4E8218CA1FF21 /* UIResponder+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B286BD757A5ABA807811E5FBA927A /* UIResponder+ErrorPresentation.m */; };
+		46E20FCF148A81D0D374BF935C7E12DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		5D546D0DB781E7A9663C8FA98FC89767 /* Pods-ErrorPresentationKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01770FF6DFBE1B3154F90BF583E23B3B /* Pods-ErrorPresentationKit_Tests-dummy.m */; };
-		691D1FE4F7F5C3E8ECF53FA67BCFBF3F /* EPKRecoveryOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54456FB39AD19AAE093A5B58BB80B5 /* EPKRecoveryOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6CD14B6036EB46C2B6442E4183F541B3 /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 302B0378404E2D87644AE0820C5DFBF2 /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FE344F7F0B6865D60201949A7905B3A /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA83E3D5CFA553E5CA31781AF7D64E2 /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810D4B3F44C21DF9C76C50CEEEC5AB6A /* Pods-ErrorPresentationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8E167BBB07AC859E69FB928BFA21B /* Pods-ErrorPresentationKit_Example-dummy.m */; };
+		84D43F517DC4A5DF2FC6BAFA7D3BCDDF /* UIApplication+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = F0CECC80409526C35C6F9FB42CFDA4A3 /* UIApplication+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86D845131491AAA2A6A688174FAD9175 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A25696554A11010BCA0494B152645446 /* Responder+ErrorPresentationLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = BE0E003CB2C963B3450D67FDCE4C6B0B /* Responder+ErrorPresentationLegacy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A84D3D62651D0E10A8F377909EABBB27 /* Pods-ErrorPresentationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 632CB0DBA62264F1B6E9C2CE493F9043 /* Pods-ErrorPresentationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CCE86A94CD77ADDBA3CA6B10BED192A2 /* UIResponder+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6505E1FD3E875A9D33E74779A4C856D8 /* UIResponder+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E66DFBC4DBF4ED16AA8658430BDBEBC0 /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A60AB120BE2E8EE471445436822F11 /* EPKRecoveryAgent.m */; };
-		EF4BB2ED9674F9892FDA26275C2A5E6C /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E6C8A6C0ECE71E557E4FBF3B07541D /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F485DE50709644ED6940EFD572C90658 /* ErrorPresentationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D7953D3B001759E4FAFF74B6509BC /* ErrorPresentationKit-dummy.m */; };
+		AAA36B59731E90DE8289C69B115659F3 /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6562B0ED72DA4B867BB484E76FC0ACC /* EPKRecoveryAgent.m */; };
+		AB06CA2226B1B1F453F1348648E26900 /* EPKRecoveryOption.h in Headers */ = {isa = PBXBuildFile; fileRef = C9870A78090198C1870BA89FD486730F /* EPKRecoveryOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCF76D66533F0971B8886F7EFBCCA5C8 /* UIApplication+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E9EF268BABF25914D2993FAEA2BDD /* UIApplication+ErrorPresentation.m */; };
+		DB52004DB1866C775CD1B9BCF9CB83E3 /* ErrorPresentationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4146876B6DBE23881D33953A58CC26 /* ErrorPresentationKit-dummy.m */; };
+		E4E4602F8BF6F1AA44697C4E56AA771B /* Responder+ErrorPresentationLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BCCF998735CD4C8637CD07FFA4806D /* Responder+ErrorPresentationLegacy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,59 +33,61 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2B6137FE2913C40FAC0427257B558C4D;
+			remoteGlobalIDString = 79C26AA1A4AA4E4D510360E60FD59B8A;
 			remoteInfo = ErrorPresentationKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01770FF6DFBE1B3154F90BF583E23B3B /* Pods-ErrorPresentationKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ErrorPresentationKit_Tests-dummy.m"; sourceTree = "<group>"; };
+		0326D9D2DD5672563C65E494F3199117 /* ErrorPresentationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ErrorPresentationKit-prefix.pch"; sourceTree = "<group>"; };
+		21BCCF998735CD4C8637CD07FFA4806D /* Responder+ErrorPresentationLegacy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Responder+ErrorPresentationLegacy.m"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.m"; sourceTree = "<group>"; };
 		2A588951140602BB28943B9FD47B400F /* Pods-ErrorPresentationKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ErrorPresentationKit_Example.modulemap"; sourceTree = "<group>"; };
-		302B0378404E2D87644AE0820C5DFBF2 /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryAgent.h; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.h; sourceTree = "<group>"; };
-		3251D92A4D5081F35EFE48E2323146E4 /* ErrorPresentationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ErrorPresentationKit-prefix.pch"; sourceTree = "<group>"; };
+		30B461F9DB3E4F1EFDDAC6CEC88A2A79 /* ErrorPresentationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ErrorPresentationKit.xcconfig; sourceTree = "<group>"; };
 		3C64CF331A0C5413197D6257D55BC96B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C70A059FEBD1012F04EA1ADB5BD3031 /* UIResponder+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.m"; sourceTree = "<group>"; };
 		3D28C0999280F75E324AF9B32B817A3E /* Pods-ErrorPresentationKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		3E240281340F284FBE2715A0E71CB2D9 /* UIApplication+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.m"; sourceTree = "<group>"; };
 		424AB3EA92C14E9925B41AFC3205A78D /* Pods-ErrorPresentationKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D7E9EF268BABF25914D2993FAEA2BDD /* UIApplication+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.m"; sourceTree = "<group>"; };
+		5580B704CFD3475BEBEC45DC9439E21B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A4146876B6DBE23881D33953A58CC26 /* ErrorPresentationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ErrorPresentationKit-dummy.m"; sourceTree = "<group>"; };
+		5D5B286BD757A5ABA807811E5FBA927A /* UIResponder+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.m"; sourceTree = "<group>"; };
 		632CB0DBA62264F1B6E9C2CE493F9043 /* Pods-ErrorPresentationKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ErrorPresentationKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		6505E1FD3E875A9D33E74779A4C856D8 /* UIResponder+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIResponder+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.h"; sourceTree = "<group>"; };
 		658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ErrorPresentationKit.framework; path = ErrorPresentationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		69E760865A3683E3559C7696F84B285F /* Pods-ErrorPresentationKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ErrorPresentationKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		70A60AB120BE2E8EE471445436822F11 /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryAgent.m; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.m; sourceTree = "<group>"; };
 		714A3AF38761BD1A5AF102B329AE445D /* Pods-ErrorPresentationKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71D4EF6E0790929A24CB7035E873FEB8 /* Pods-ErrorPresentationKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7676ECF7BD956BC1B4B4507DF557945A /* Pods-ErrorPresentationKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ErrorPresentationKit_Tests.modulemap"; sourceTree = "<group>"; };
 		7AD51998C19B22D0F91BF411B4EF4CE0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		855B3E5575C88A0728922FD01C808B6A /* ErrorPresentationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ErrorPresentationKit.xcconfig; sourceTree = "<group>"; };
 		9269D0BBE76D6BD44F08ED339D88945F /* Pods-ErrorPresentationKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ErrorPresentationKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9C29C636424770924A0E717E1BE077BD /* Pods_ErrorPresentationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ErrorPresentationKit_Example.framework; path = "Pods-ErrorPresentationKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D54456FB39AD19AAE093A5B58BB80B5 /* EPKRecoveryOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryOption.h; path = ErrorPresentationKit/Classes/EPKRecoveryOption.h; sourceTree = "<group>"; };
 		9DBF93E74474C06B62F76CEF54E96956 /* Pods-ErrorPresentationKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ErrorPresentationKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9E6CB8A12FEC5C26CDE0F1E1ED15CB6B /* Pods-ErrorPresentationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9EF8E167BBB07AC859E69FB928BFA21B /* Pods-ErrorPresentationKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ErrorPresentationKit_Example-dummy.m"; sourceTree = "<group>"; };
 		9F50874D7507D8BC45FF68B085B1A2F7 /* Pods_ErrorPresentationKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ErrorPresentationKit_Tests.framework; path = "Pods-ErrorPresentationKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB2D7953D3B001759E4FAFF74B6509BC /* ErrorPresentationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ErrorPresentationKit-dummy.m"; sourceTree = "<group>"; };
 		AD8106234678E8C17B86FB0B30B38A30 /* Pods-ErrorPresentationKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ErrorPresentationKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AEB5618CF1059D4F672D1BB57C2BDD42 /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
 		B32B2A9CD29372093DC3B38247B7DA48 /* Pods-ErrorPresentationKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B5279DE4D8ACC6C709DA92BF81E1E601 /* Pods-ErrorPresentationKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Example-resources.sh"; sourceTree = "<group>"; };
-		BD151D3F7CB7D122116545FCE350B66C /* UIApplication+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.h"; sourceTree = "<group>"; };
-		C98D532205E04C728CE5EA0725211565 /* EPKRecoveryOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryOption.m; path = ErrorPresentationKit/Classes/EPKRecoveryOption.m; sourceTree = "<group>"; };
-		D3F61550C7C7AF91A0FDCE801865DAF4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6562B0ED72DA4B867BB484E76FC0ACC /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryAgent.m; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.m; sourceTree = "<group>"; };
+		BE0E003CB2C963B3450D67FDCE4C6B0B /* Responder+ErrorPresentationLegacy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Responder+ErrorPresentationLegacy.h"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.h"; sourceTree = "<group>"; };
+		C9870A78090198C1870BA89FD486730F /* EPKRecoveryOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryOption.h; path = ErrorPresentationKit/Classes/EPKRecoveryOption.h; sourceTree = "<group>"; };
+		CAA5598D45DCF804865F5A09C7DAF242 /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryAgent.h; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.h; sourceTree = "<group>"; };
+		D74252E2FB8401277E7DD891E4B08F10 /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
+		DAF3E406A42F7B5A4E8452C80A7BB17F /* UIResponder+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIResponder+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.h"; sourceTree = "<group>"; };
 		DED9AA4A0429566357390EE52A6DAB84 /* Pods-ErrorPresentationKit_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Tests-resources.sh"; sourceTree = "<group>"; };
+		E78964CB0D1384DEBE7AFD201C0FFC47 /* EPKRecoveryOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryOption.m; path = ErrorPresentationKit/Classes/EPKRecoveryOption.m; sourceTree = "<group>"; };
 		EDC21BD70E8E948D211D4FD9E9E0988B /* Pods-ErrorPresentationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ErrorPresentationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F2E6C8A6C0ECE71E557E4FBF3B07541D /* ErrorPresentationKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ErrorPresentationKit.h; path = ErrorPresentationKit/Classes/ErrorPresentationKit.h; sourceTree = "<group>"; };
+		F0CECC80409526C35C6F9FB42CFDA4A3 /* UIApplication+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.h"; sourceTree = "<group>"; };
+		FCA83E3D5CFA553E5CA31781AF7D64E2 /* ErrorPresentationKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ErrorPresentationKit.h; path = ErrorPresentationKit/Classes/ErrorPresentationKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		63B743418070517CF23494DD0CE66E4A /* Frameworks */ = {
+		33D195AA03F512116EDB27F405052C40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22CCB29CB8959CB274D4C0B4F670E5BD /* Foundation.framework in Frameworks */,
+				46E20FCF148A81D0D374BF935C7E12DB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,14 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B499F194D8E609DD40B8A151867A1F4 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C25593CEAD1EAFA20332E4F2C68DA476 /* ErrorPresentationKit */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		30899B344865B7F533FD20C18E6522C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,15 +120,56 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		323BFB17ADA950EC5F2DE085FD5B8F63 /* ErrorPresentationKit */ = {
+			isa = PBXGroup;
+			children = (
+				CAA5598D45DCF804865F5A09C7DAF242 /* EPKRecoveryAgent.h */,
+				B6562B0ED72DA4B867BB484E76FC0ACC /* EPKRecoveryAgent.m */,
+				C9870A78090198C1870BA89FD486730F /* EPKRecoveryOption.h */,
+				E78964CB0D1384DEBE7AFD201C0FFC47 /* EPKRecoveryOption.m */,
+				FCA83E3D5CFA553E5CA31781AF7D64E2 /* ErrorPresentationKit.h */,
+				BE0E003CB2C963B3450D67FDCE4C6B0B /* Responder+ErrorPresentationLegacy.h */,
+				21BCCF998735CD4C8637CD07FFA4806D /* Responder+ErrorPresentationLegacy.m */,
+				F0CECC80409526C35C6F9FB42CFDA4A3 /* UIApplication+ErrorPresentation.h */,
+				4D7E9EF268BABF25914D2993FAEA2BDD /* UIApplication+ErrorPresentation.m */,
+				DAF3E406A42F7B5A4E8452C80A7BB17F /* UIResponder+ErrorPresentation.h */,
+				5D5B286BD757A5ABA807811E5FBA927A /* UIResponder+ErrorPresentation.m */,
+				54C7F0DC950C44A7CE1E87B4833AD754 /* Support Files */,
+			);
+			name = ErrorPresentationKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		54C7F0DC950C44A7CE1E87B4833AD754 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D74252E2FB8401277E7DD891E4B08F10 /* ErrorPresentationKit.modulemap */,
+				30B461F9DB3E4F1EFDDAC6CEC88A2A79 /* ErrorPresentationKit.xcconfig */,
+				5A4146876B6DBE23881D33953A58CC26 /* ErrorPresentationKit-dummy.m */,
+				0326D9D2DD5672563C65E494F3199117 /* ErrorPresentationKit-prefix.pch */,
+				5580B704CFD3475BEBEC45DC9439E21B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ErrorPresentationKit";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				0B499F194D8E609DD40B8A151867A1F4 /* Development Pods */,
+				9F860DEB83472FD901AD8F6859F3F96C /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				30899B344865B7F533FD20C18E6522C0 /* Products */,
 				A040E16FEC86EDAB60806CDEA02A196D /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9F860DEB83472FD901AD8F6859F3F96C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				323BFB17ADA950EC5F2DE085FD5B8F63 /* ErrorPresentationKit */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		A03F825BEB48F85218D26671D2E2E838 /* Pods-ErrorPresentationKit_Example */ = {
@@ -162,43 +199,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		AE34A94A4FDC0EA6E4240E6BDAAB7B26 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				AEB5618CF1059D4F672D1BB57C2BDD42 /* ErrorPresentationKit.modulemap */,
-				855B3E5575C88A0728922FD01C808B6A /* ErrorPresentationKit.xcconfig */,
-				AB2D7953D3B001759E4FAFF74B6509BC /* ErrorPresentationKit-dummy.m */,
-				3251D92A4D5081F35EFE48E2323146E4 /* ErrorPresentationKit-prefix.pch */,
-				D3F61550C7C7AF91A0FDCE801865DAF4 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/ErrorPresentationKit";
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C25593CEAD1EAFA20332E4F2C68DA476 /* ErrorPresentationKit */ = {
-			isa = PBXGroup;
-			children = (
-				302B0378404E2D87644AE0820C5DFBF2 /* EPKRecoveryAgent.h */,
-				70A60AB120BE2E8EE471445436822F11 /* EPKRecoveryAgent.m */,
-				9D54456FB39AD19AAE093A5B58BB80B5 /* EPKRecoveryOption.h */,
-				C98D532205E04C728CE5EA0725211565 /* EPKRecoveryOption.m */,
-				F2E6C8A6C0ECE71E557E4FBF3B07541D /* ErrorPresentationKit.h */,
-				BD151D3F7CB7D122116545FCE350B66C /* UIApplication+ErrorPresentation.h */,
-				3E240281340F284FBE2715A0E71CB2D9 /* UIApplication+ErrorPresentation.m */,
-				6505E1FD3E875A9D33E74779A4C856D8 /* UIResponder+ErrorPresentation.h */,
-				3C70A059FEBD1012F04EA1ADB5BD3031 /* UIResponder+ErrorPresentation.m */,
-				AE34A94A4FDC0EA6E4240E6BDAAB7B26 /* Support Files */,
-			);
-			name = ErrorPresentationKit;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		CE4AA89BBCDCFB32D8F81D22D3E8DAE0 /* Pods-ErrorPresentationKit_Tests */ = {
@@ -230,15 +236,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		13863FCB112B79C67961FFA841699178 /* Headers */ = {
+		230B83263CE85C07485EF2FD2B14A1EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CD14B6036EB46C2B6442E4183F541B3 /* EPKRecoveryAgent.h in Headers */,
-				691D1FE4F7F5C3E8ECF53FA67BCFBF3F /* EPKRecoveryOption.h in Headers */,
-				EF4BB2ED9674F9892FDA26275C2A5E6C /* ErrorPresentationKit.h in Headers */,
-				0E9456F0E4D5581C97CF5985AE53233F /* UIApplication+ErrorPresentation.h in Headers */,
-				CCE86A94CD77ADDBA3CA6B10BED192A2 /* UIResponder+ErrorPresentation.h in Headers */,
+				13029E23D6666DEEA26A55AC18532B3B /* EPKRecoveryAgent.h in Headers */,
+				AB06CA2226B1B1F453F1348648E26900 /* EPKRecoveryOption.h in Headers */,
+				5FE344F7F0B6865D60201949A7905B3A /* ErrorPresentationKit.h in Headers */,
+				A25696554A11010BCA0494B152645446 /* Responder+ErrorPresentationLegacy.h in Headers */,
+				84D43F517DC4A5DF2FC6BAFA7D3BCDDF /* UIApplication+ErrorPresentation.h in Headers */,
+				022CED59F39E60393F752D3DAD65F405 /* UIResponder+ErrorPresentation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,23 +268,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2B6137FE2913C40FAC0427257B558C4D /* ErrorPresentationKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 71C1CC89602E222D0AFA276173F1207E /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */;
-			buildPhases = (
-				FBA8EC2DB70162D64F7FC8A03D4EB7E4 /* Sources */,
-				63B743418070517CF23494DD0CE66E4A /* Frameworks */,
-				13863FCB112B79C67961FFA841699178 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ErrorPresentationKit;
-			productName = ErrorPresentationKit;
-			productReference = 658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		6D186F436A481E42A939323B196CA3E7 /* Pods-ErrorPresentationKit_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9E9077C018CC104727AD61E7D784B6F /* Build configuration list for PBXNativeTarget "Pods-ErrorPresentationKit_Example" */;
@@ -294,6 +284,23 @@
 			name = "Pods-ErrorPresentationKit_Example";
 			productName = "Pods-ErrorPresentationKit_Example";
 			productReference = 9C29C636424770924A0E717E1BE077BD /* Pods_ErrorPresentationKit_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79C26AA1A4AA4E4D510360E60FD59B8A /* ErrorPresentationKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD84FB56CD0A320301E012E878A8DFF9 /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */;
+			buildPhases = (
+				95E52BE2FDA13031A2C1FB7A62800209 /* Sources */,
+				33D195AA03F512116EDB27F405052C40 /* Frameworks */,
+				230B83263CE85C07485EF2FD2B14A1EC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ErrorPresentationKit;
+			productName = ErrorPresentationKit;
+			productReference = 658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E063CBEC9D0D08AE7BF4806A5E76918C /* Pods-ErrorPresentationKit_Tests */ = {
@@ -334,7 +341,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B6137FE2913C40FAC0427257B558C4D /* ErrorPresentationKit */,
+				79C26AA1A4AA4E4D510360E60FD59B8A /* ErrorPresentationKit */,
 				6D186F436A481E42A939323B196CA3E7 /* Pods-ErrorPresentationKit_Example */,
 				E063CBEC9D0D08AE7BF4806A5E76918C /* Pods-ErrorPresentationKit_Tests */,
 			);
@@ -350,23 +357,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		95E52BE2FDA13031A2C1FB7A62800209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA36B59731E90DE8289C69B115659F3 /* EPKRecoveryAgent.m in Sources */,
+				0513E25C16DED5B3D5DC1C9ABEE19BF9 /* EPKRecoveryOption.m in Sources */,
+				DB52004DB1866C775CD1B9BCF9CB83E3 /* ErrorPresentationKit-dummy.m in Sources */,
+				E4E4602F8BF6F1AA44697C4E56AA771B /* Responder+ErrorPresentationLegacy.m in Sources */,
+				BCF76D66533F0971B8886F7EFBCCA5C8 /* UIApplication+ErrorPresentation.m in Sources */,
+				19CAF4A1B9D5808E13D4E8218CA1FF21 /* UIResponder+ErrorPresentation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C999671A134CB0DFEA6E539A84EF008B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				810D4B3F44C21DF9C76C50CEEEC5AB6A /* Pods-ErrorPresentationKit_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBA8EC2DB70162D64F7FC8A03D4EB7E4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E66DFBC4DBF4ED16AA8658430BDBEBC0 /* EPKRecoveryAgent.m in Sources */,
-				54D42548C84B256CB2FFF62D20A039EA /* EPKRecoveryOption.m in Sources */,
-				F485DE50709644ED6940EFD572C90658 /* ErrorPresentationKit-dummy.m in Sources */,
-				4A08ED8D16FB8F8F1C65CBF465986B7B /* UIApplication+ErrorPresentation.m in Sources */,
-				55FEACA1F9010C084E37350783A4DF9F /* UIResponder+ErrorPresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +384,7 @@
 		F9A13A897C8832C8022E6B9CAAB1455C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ErrorPresentationKit;
-			target = 2B6137FE2913C40FAC0427257B558C4D /* ErrorPresentationKit */;
+			target = 79C26AA1A4AA4E4D510360E60FD59B8A /* ErrorPresentationKit */;
 			targetProxy = 6AF3EEC3451B04189D9F24849F3822DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -408,36 +416,6 @@
 				PRODUCT_NAME = Pods_ErrorPresentationKit_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		0F775656A1B0E7F1959DF2B1A6B9FA7E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 855B3E5575C88A0728922FD01C808B6A /* ErrorPresentationKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ErrorPresentationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit.modulemap";
-				PRODUCT_NAME = ErrorPresentationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -504,6 +482,65 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
+		};
+		3192B1D1753F78249A0FFA3EB38AF8A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30B461F9DB3E4F1EFDDAC6CEC88A2A79 /* ErrorPresentationKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ErrorPresentationKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit.modulemap";
+				PRODUCT_NAME = ErrorPresentationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		64D3B151BF580F26039BFE4551B171A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30B461F9DB3E4F1EFDDAC6CEC88A2A79 /* ErrorPresentationKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ErrorPresentationKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit.modulemap";
+				PRODUCT_NAME = ErrorPresentationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		76FF12CD483F7B5E177CEA5296A0C947 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -657,35 +694,6 @@
 			};
 			name = Release;
 		};
-		FEEC965804810E82B499DF8AAF0F9176 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 855B3E5575C88A0728922FD01C808B6A /* ErrorPresentationKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ErrorPresentationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ErrorPresentationKit/ErrorPresentationKit.modulemap";
-				PRODUCT_NAME = ErrorPresentationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -698,20 +706,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71C1CC89602E222D0AFA276173F1207E /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FEEC965804810E82B499DF8AAF0F9176 /* Debug */,
-				0F775656A1B0E7F1959DF2B1A6B9FA7E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		80308876D2DD91BFC18A4C7A92A0391D /* Build configuration list for PBXNativeTarget "Pods-ErrorPresentationKit_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76FF12CD483F7B5E177CEA5296A0C947 /* Debug */,
 				038189D2A60314D3A62417396628E8CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD84FB56CD0A320301E012E878A8DFF9 /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3192B1D1753F78249A0FFA3EB38AF8A3 /* Debug */,
+				64D3B151BF580F26039BFE4551B171A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

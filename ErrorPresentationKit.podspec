@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ErrorPresentationKit'
-  s.version          = '0.2.3'
+  s.version          = '0.3.0'
   s.summary          = 'iOS implementation of the error handling mechanisms available in the macOS'
 
 # This description is used to generate tags and improve search results.
