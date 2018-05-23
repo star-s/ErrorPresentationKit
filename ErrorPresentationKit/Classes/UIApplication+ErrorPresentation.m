@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import "UIApplication+ErrorPresentation.h"
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
@@ -172,3 +174,5 @@
 }
 
 @end
+
+#endif

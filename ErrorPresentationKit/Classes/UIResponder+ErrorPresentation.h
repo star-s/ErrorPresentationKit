@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import <UIKit/UIKit.h>
 
 @interface UIResponder (ErrorPresentation)
@@ -56,3 +58,5 @@
 - (void)presentError:(NSError *)error delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo;
 
 @end
+
+#endif
