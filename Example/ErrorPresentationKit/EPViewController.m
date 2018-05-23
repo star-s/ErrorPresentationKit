@@ -63,7 +63,7 @@
             return YES;
         }]];
         
-        result = [error errorWithAdditionRecoveryAgent: agent];
+        result = [error errorWithRecoveryAgent: agent];
     } else {
         result = [super willPresentError: error];
     }

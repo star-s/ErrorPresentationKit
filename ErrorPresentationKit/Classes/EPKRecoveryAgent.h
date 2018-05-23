@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSError (RecoveryAgentInjection)
 
-- (NSError *)errorWithAdditionRecoveryAgent:(EPKRecoveryAgent *)agent;
+- (NSError *)errorWithRecoveryAgent:(EPKRecoveryAgent *)agent;
 
 @end
 

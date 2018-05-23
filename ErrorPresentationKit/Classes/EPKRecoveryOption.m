@@ -73,11 +73,6 @@
     return [[self alloc] initWithTitle: title recoveryBlock: block backgroundExecute: YES];
 }
 
-- (instancetype)initWithTitle:(NSString *)title
-{
-    return [self initWithTitle: title recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) { return NO; }];
-}
-
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
 {
     return [self initWithTitle: title recoveryBlock: block backgroundExecute: NO];

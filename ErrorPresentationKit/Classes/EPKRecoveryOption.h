@@ -45,6 +45,8 @@ typedef BOOL(^EPKRecoveryBlock)(NSError *error, void * _Nullable * _Nullable con
 
 + (instancetype)backgroundRecoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
 
+- (instancetype)initWithTitle:(NSString *)title NS_UNAVAILABLE;
+
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
 
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block backgroundExecute:(BOOL)background;
