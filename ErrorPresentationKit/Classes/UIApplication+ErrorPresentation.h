@@ -24,7 +24,11 @@
 
 - (BOOL)presentError:(NSError *)anError;
 
-- (void)presentError:(NSError *)error modalForWindow:(UIWindow *)window delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo;
+- (void)presentError:(NSError *)error
+      modalForWindow:(nullable UIWindow *)window
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo;
 
 @end
 

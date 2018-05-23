@@ -13,7 +13,7 @@
 @implementation UIResponder (ErrorPresentation)
 
 - (void)presentError:(NSError *)error
-      modalForWindow:(UIWindow *)window
+      modalForWindow:(nullable UIWindow *)window
             delegate:(nullable id)delegate
   didPresentSelector:(nullable SEL)didPresentSelector
          contextInfo:(nullable void *)contextInfo
@@ -33,19 +33,6 @@
 - (NSError *)willPresentError:(NSError *)error
 {
     return error;
-}
-
-@end
-
-@implementation UIResponder (ErrorPresentationLegacy)
-
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
-{
-    [self presentError: error
-        modalForWindow: nil
-              delegate: delegate
-    didPresentSelector: didPresentSelector
-           contextInfo: contextInfo];
 }
 
 @end

@@ -19,3 +19,4 @@ FOUNDATION_EXPORT const unsigned char ErrorPresentationKitVersionString[];
 #import <ErrorPresentationKit/EPKRecoveryOption.h>
 #import <ErrorPresentationKit/UIApplication+ErrorPresentation.h>
 #import <ErrorPresentationKit/UIResponder+ErrorPresentation.h>
+#import <ErrorPresentationKit/Responder+ErrorPresentationLegacy.h>
