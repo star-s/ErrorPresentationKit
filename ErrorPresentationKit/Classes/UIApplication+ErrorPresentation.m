@@ -92,7 +92,7 @@
                                                            }];
             [alert addAction: action];
         }
-        UIViewController *presenter = self.delegate.window.rootViewController;
+        UIViewController *presenter = self.keyWindow.rootViewController;
         while (presenter.presentedViewController) {
             presenter = presenter.presentedViewController;
         }
@@ -106,7 +106,7 @@
     return result;
 }
 
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
+- (void)presentError:(NSError *)error modalForWindow:(UIWindow *)window delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo
 {
     NSError *theErrorToPresent = [self willPresentError: error];
     
@@ -147,7 +147,10 @@
                                                             }];
             [alert addAction: action];
         }
-        UIViewController *presenter = self.delegate.window.rootViewController;
+        if (!window) {
+            window = [self keyWindow];
+        }
+        UIViewController *presenter = window.rootViewController;
         while (presenter.presentedViewController) {
             presenter = presenter.presentedViewController;
         }
