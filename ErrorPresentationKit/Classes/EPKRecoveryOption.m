@@ -8,6 +8,26 @@
 
 #import "EPKRecoveryOption.h"
 
+@implementation EPKAbstractRecoveryOption
+
+- (instancetype)initWithTitle:(NSString *)title
+{
+    NSParameterAssert(title.length > 0);
+    self = [super init];
+    if (self) {
+        _title = [title copy];
+    }
+    return self;
+}
+
+- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
+{
+    [NSException raise: NSInvalidArgumentException format: @"*** -%@ only defined for abstract class. Define %s!", NSStringFromSelector(_cmd), __PRETTY_FUNCTION__];
+    return NO;
+}
+
+@end
+
 @implementation EPKRecoveryOption
 
 + (instancetype)okRecoveryOption
@@ -22,18 +42,28 @@
 
 - (instancetype)initWithTitle:(NSString *)title
 {
-    NSParameterAssert(title.length > 0);
-    self = [super init];
+    return [self initWithTitle: title recoveryResult: NO];
+}
+
+- (instancetype)initWithTitle:(NSString *)title recoveryResult:(BOOL)result
+{
+    self = [super initWithTitle: title];
     if (self) {
-        _title = [title copy];
+        _recoveryResult = result;
     }
     return self;
 }
 
 - (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
 {
-    return NO;
+    return self.recoveryResult;
 }
+
+@end
+
+@interface EPKBlockRecoveryOption ()
+
+@property (atomic, getter=isRecoveryComplete) BOOL recoveryComplete;
 
 @end
 
@@ -44,6 +74,11 @@
     return [[self alloc] initWithTitle: title recoveryBlock: block];
 }
 
++ (instancetype)backgroundRecoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
+{
+    return [[self alloc] initWithTitle: title recoveryBlock: block backgroundExecute: YES];
+}
+
 - (instancetype)initWithTitle:(NSString *)title
 {
     return [self initWithTitle: title recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) { return NO; }];
@@ -51,18 +86,38 @@
 
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block
 {
+    return [self initWithTitle: title recoveryBlock: block backgroundExecute: NO];
+}
+
+- (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block backgroundExecute:(BOOL)background
+{
     NSParameterAssert(block != nil);
     self = [super initWithTitle: title];
     if (self) {
-        //
         _recoveryBlock = [block copy];
+        _backgroundExecute = background;
     }
     return self;
 }
 
 - (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
 {
-    return self.recoveryBlock(error, contextInfo);
+    if (self.backgroundExecute) {
+        //
+        __block BOOL result = NO;
+        [self setRecoveryComplete: NO];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            result = self.recoveryBlock(error, contextInfo);
+            [self setRecoveryComplete: YES];
+        });
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        do {
+            [runLoop runMode: runLoop.currentMode beforeDate: [NSDate dateWithTimeIntervalSinceNow: 1.0]];
+        } while (![self isRecoveryComplete]);
+        return result;
+    } else {
+        return self.recoveryBlock(error, contextInfo);
+    }
 }
 
 @end

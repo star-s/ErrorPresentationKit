@@ -28,7 +28,7 @@
 
 @interface EPKRecoveryAgent ()
 
-@property (nonatomic, readonly) NSArray <__kindof EPKRecoveryOption *> *options;
+@property (nonatomic, readonly) NSArray <__kindof EPKAbstractRecoveryOption *> *options;
 
 @end
 

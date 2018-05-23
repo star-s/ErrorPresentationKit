@@ -10,13 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EPKRecoveryOption : NSObject
+@interface EPKAbstractRecoveryOption : NSObject
 
 @property (nonnull, readonly) NSString *title;
-
-+ (instancetype)okRecoveryOption;
-
-+ (instancetype)cancelRecoveryOption;
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -26,15 +22,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface EPKRecoveryOption : EPKAbstractRecoveryOption
+
+@property (nonatomic, readonly) BOOL recoveryResult;
+
+- (instancetype)initWithTitle:(NSString *)title recoveryResult:(BOOL)result;
+
++ (instancetype)okRecoveryOption;
+
++ (instancetype)cancelRecoveryOption;
+
+@end
+
 typedef BOOL(^EPKRecoveryBlock)(NSError *error, void * _Nullable * _Nullable contextInfo);
 
-@interface EPKBlockRecoveryOption : EPKRecoveryOption
+@interface EPKBlockRecoveryOption : EPKAbstractRecoveryOption
 
 @property (nonatomic, copy, readonly) EPKRecoveryBlock recoveryBlock;
+@property (nonatomic) BOOL backgroundExecute; // Default - NO
 
 + (instancetype)recoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
 
++ (instancetype)backgroundRecoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
+
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
+
+- (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block backgroundExecute:(BOOL)background;
 
 @end
 

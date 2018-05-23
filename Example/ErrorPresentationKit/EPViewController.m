@@ -44,8 +44,9 @@
         //
         EPKRecoveryAgent *agent = [[EPKRecoveryAgent alloc] initWithRecoverySuggestion: @"please try again"];
         
-        [agent addRecoveryOption: [EPKBlockRecoveryOption recoveryOptionWithTitle: @"Try" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
+        [agent addRecoveryOption: [EPKBlockRecoveryOption backgroundRecoveryOptionWithTitle: @"Try" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
             //
+            [NSThread sleepForTimeInterval: 5.0];
             if (contextInfo) {
                 *contextInfo = (__bridge_retained void *)error;
             }
@@ -53,7 +54,6 @@
         }]];
         
         [agent addRecoveryOption: [EPKBlockRecoveryOption recoveryOptionWithTitle: @"Stop trying" recoveryBlock: ^BOOL(NSError * _Nonnull error, void **contextInfo) {
-            //
             return YES;
         }]];
         
