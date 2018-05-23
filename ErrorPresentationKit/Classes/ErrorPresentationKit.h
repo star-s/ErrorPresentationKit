@@ -6,7 +6,11 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <Cocoa/Cocoa.h>
+#endif
 
 //! Project version number for ErrorPresentationKit.
 FOUNDATION_EXPORT double ErrorPresentationKitVersionNumber;
