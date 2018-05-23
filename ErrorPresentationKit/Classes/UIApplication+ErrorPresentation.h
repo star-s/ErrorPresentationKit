@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import <UIKit/UIKit.h>
 
 @protocol ApplicationDelegateWithErrorPresentation <UIApplicationDelegate>
@@ -20,8 +22,14 @@
 
 - (NSError *)willPresentError:(NSError *)error;
 
-- (void)presentError:(NSError *)anError;
+- (BOOL)presentError:(NSError *)anError;
 
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo;
+- (void)presentError:(NSError *)error
+      modalForWindow:(nullable UIWindow *)window
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo;
 
 @end
+
+#endif

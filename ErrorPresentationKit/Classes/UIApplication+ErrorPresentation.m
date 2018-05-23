@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import "UIApplication+ErrorPresentation.h"
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
@@ -50,19 +52,18 @@
     } else {
         theErrorToPresent = [super willPresentError: error];
     }
-    return [theErrorToPresent epk_isCancelError] ? nil : theErrorToPresent;
+    return theErrorToPresent;
 }
 
-- (void)presentError:(NSError *)anError
+- (BOOL)presentError:(NSError *)anError
 {
-    [self presentError: anError delegate: nil didPresentSelector: NULL contextInfo: NULL];
-}
+    __block BOOL result = NO;
 
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
-{
-    NSError *theErrorToPresent = [self willPresentError: error];
+    NSError *theErrorToPresent = [self willPresentError: anError];
     
-    if (theErrorToPresent) {
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
+        
+        __block BOOL jobsDone = NO;
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
@@ -70,60 +71,108 @@
         
         [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
             //
-            void (^actionHandler)(UIAlertAction *);
-            
-            if (delegate) {
-                actionHandler = ^(UIAlertAction *action){
-                    //
-                    id recoverer = [theErrorToPresent recoveryAttempter];
-                    
-                    [recoverer attemptRecoveryFromError: theErrorToPresent
-                                            optionIndex: idx
-                                               delegate: delegate
-                                     didRecoverSelector: didPresentSelector
-                                            contextInfo: contextInfo];
-                };
-            } else {
-                actionHandler = ^(UIAlertAction *action){
-                    //
-                    id recoverer = [theErrorToPresent recoveryAttempter];
-                    
-                    [recoverer attemptRecoveryFromError: theErrorToPresent
-                                            optionIndex: idx];
-                };
-            }
             UIAlertAction *action = [UIAlertAction actionWithTitle: title
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                                           handler: actionHandler];
+                                                           handler: ^(UIAlertAction *action){
+                                                               id recoverer = [theErrorToPresent recoveryAttempter];
+                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
+                                                               jobsDone = YES;
+                                                           }];
             [alert addAction: action];
         }];
         
         if (alert.actions.count == 0) {
             //
-            EPKRecoveryOption *defaultOption = [EPKRecoveryOption okRecoveryOption];
-            
-            void (^handler)(UIAlertAction *action) = delegate ? ^(UIAlertAction *action){
-                //
-                EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
-                
-                [recoverer addRecoveryOption: defaultOption];
-                
-                [recoverer attemptRecoveryFromError: theErrorToPresent
-                                        optionIndex: 0
-                                           delegate: delegate
-                                 didRecoverSelector: didPresentSelector
-                                        contextInfo: contextInfo];
+            EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
+            [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
 
-            } : NULL;
-            
-            [alert addAction: [UIAlertAction actionWithTitle: defaultOption.title style: UIAlertActionStyleCancel handler: handler]];
+            UIAlertAction *action = [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
+                                                             style: UIAlertActionStyleCancel
+                                                           handler: ^(UIAlertAction *action){
+                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
+                                                               jobsDone = YES;
+                                                           }];
+            [alert addAction: action];
         }
-        UIViewController *presenter = self.delegate.window.rootViewController;
+        UIViewController *presenter = self.keyWindow.rootViewController;
         while (presenter.presentedViewController) {
             presenter = presenter.presentedViewController;
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
+        
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        do {
+            [runLoop runMode: runLoop.currentMode beforeDate: [NSDate dateWithTimeIntervalSinceNow: 1.0]];
+        } while (!jobsDone);
+    }
+    return result;
+}
+
+- (void)presentError:(NSError *)error modalForWindow:(UIWindow *)window delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo
+{
+    NSError *theErrorToPresent = [self willPresentError: error];
+    
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
+                                                                       message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
+                                                                preferredStyle: UIAlertControllerStyleAlert];
+        
+        [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
+            //
+            UIAlertAction *action = [UIAlertAction actionWithTitle: title
+                                                             style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
+                                                           handler: ^(UIAlertAction *action){
+                                                               id recoverer = [theErrorToPresent recoveryAttempter];
+                                                               [recoverer attemptRecoveryFromError: theErrorToPresent
+                                                                                       optionIndex: idx
+                                                                                          delegate: delegate
+                                                                                didRecoverSelector: didPresentSelector
+                                                                                       contextInfo: contextInfo];
+                                                           }];
+            [alert addAction: action];
+        }];
+        
+        if (alert.actions.count == 0) {
+            //
+            EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
+            [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
+            
+            UIAlertAction *action =  [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
+                                                              style: UIAlertActionStyleCancel
+                                                            handler: ^(UIAlertAction *action){
+                                                                [recoverer attemptRecoveryFromError: theErrorToPresent
+                                                                                        optionIndex: 0
+                                                                                           delegate: delegate
+                                                                                 didRecoverSelector: didPresentSelector
+                                                                                        contextInfo: contextInfo];
+                                                            }];
+            [alert addAction: action];
+        }
+        if (!window) {
+            window = [self keyWindow];
+        }
+        UIViewController *presenter = window.rootViewController;
+        while (presenter.presentedViewController) {
+            presenter = presenter.presentedViewController;
+        }
+        [presenter presentViewController: alert animated: YES completion: NULL];
+    } else {
+        //
+        EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
+        [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //
+            [recoverer attemptRecoveryFromError: theErrorToPresent
+                                    optionIndex: 0
+                                       delegate: delegate
+                             didRecoverSelector: didPresentSelector
+                                    contextInfo: contextInfo];
+        });
     }
 }
 
 @end
+
+#endif

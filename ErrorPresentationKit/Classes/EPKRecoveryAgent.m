@@ -11,7 +11,7 @@
 
 @implementation NSError (RecoveryAgentInjection)
 
-- (NSError *)errorWithAdditionRecoveryAgent:(EPKRecoveryAgent *)agent
+- (NSError *)errorWithRecoveryAgent:(EPKRecoveryAgent *)agent
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary: self.userInfo];
     
@@ -21,7 +21,7 @@
     userInfo[NSLocalizedRecoveryOptionsErrorKey] = agent.recoveryOptionsTitles;
     userInfo[NSRecoveryAttempterErrorKey] = agent;
     
-    return [self.class errorWithDomain: self.domain code: self.code userInfo: userInfo];
+    return [[[self class] alloc] initWithDomain: self.domain code: self.code userInfo: userInfo];
 }
 
 @end

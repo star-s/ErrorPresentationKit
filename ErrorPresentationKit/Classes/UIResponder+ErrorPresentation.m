@@ -6,31 +6,35 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import "UIResponder+ErrorPresentation.h"
 
 @implementation UIResponder (ErrorPresentation)
+
+- (void)presentError:(NSError *)error
+      modalForWindow:(nullable UIWindow *)window
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo
+{
+    [self.nextResponder presentError: [self willPresentError: error]
+                      modalForWindow: window
+                            delegate: delegate
+                  didPresentSelector: didPresentSelector
+                         contextInfo: contextInfo];
+}
+
+- (BOOL)presentError:(NSError *)error
+{
+    return [self.nextResponder presentError: [self willPresentError: error]];
+}
 
 - (NSError *)willPresentError:(NSError *)error
 {
     return error;
 }
 
-- (void)presentError:(NSError *)anError
-{
-    NSError *theErrorToPresent = [self willPresentError: anError];
-    
-    if (theErrorToPresent) {
-        [self.nextResponder presentError: theErrorToPresent];
-    }
-}
-
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
-{
-    NSError *theErrorToPresent = [self willPresentError: error];
-    
-    if (theErrorToPresent) {
-        [self.nextResponder presentError: theErrorToPresent delegate: delegate didPresentSelector: didPresentSelector contextInfo: contextInfo];
-    }
-}
-
 @end
+
+#endif
