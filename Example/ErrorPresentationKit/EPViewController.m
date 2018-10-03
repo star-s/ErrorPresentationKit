@@ -27,11 +27,14 @@
 - (IBAction)doIt:(UIButton *)sender
 {
     NSError *error = [NSError errorWithDomain: NSStringFromClass(self.class) code: -1 userInfo: @{NSLocalizedDescriptionKey: @"Something went wrong"}];
-    //
-    [self presentError: nil
+    [sender presentError: error didPresentHandler: ^(BOOL recovered) {
+        NSLog(@"Presented");
+    }];
+    /*/
+    [self presentError: error
               delegate: self
     didPresentSelector: @selector(didPresentErrorWithRecovery:contextInfo:)
-           contextInfo: (__bridge_retained void *)error];
+           contextInfo: (__bridge_retained void *)error];*/
     /*if ([self presentError: error]) {
         NSLog(@"Recovered!");
     } else {
@@ -63,7 +66,7 @@
             return YES;
         }]];
         
-        result = [error errorWithRecoveryAgent: agent];
+        result = [agent injectIntoError: error];
     } else {
         result = [super willPresentError: error];
     }

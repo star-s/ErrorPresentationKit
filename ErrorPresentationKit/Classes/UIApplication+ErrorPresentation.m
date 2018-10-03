@@ -15,13 +15,13 @@
 
 @interface NSError (CheckForCancel)
 
-- (BOOL)epk_isCancelError;
+@property (nonatomic, readonly) BOOL epk_isCancelledError;
 
 @end
 
 @implementation NSError (CheckForCancel)
 
-- (BOOL)epk_isCancelError
+- (BOOL)epk_isCancelledError
 {
     BOOL result = NO;
     
@@ -55,15 +55,11 @@
     return theErrorToPresent;
 }
 
-- (BOOL)presentError:(NSError *)anError
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
 {
-    __block BOOL result = NO;
-
-    NSError *theErrorToPresent = [self willPresentError: anError];
+    NSError *theErrorToPresent = [self willPresentError: error];
     
-    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
-        
-        __block BOOL jobsDone = NO;
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelledError]) {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
@@ -75,8 +71,8 @@
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
                                                            handler: ^(UIAlertAction *action){
                                                                id recoverer = [theErrorToPresent recoveryAttempter];
-                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
-                                                               jobsDone = YES;
+                                                               BOOL recoveryResult = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
+                                                               handler ? handler(recoveryResult) : NULL;
                                                            }];
             [alert addAction: action];
         }];
@@ -89,8 +85,8 @@
             UIAlertAction *action = [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
                                                              style: UIAlertActionStyleCancel
                                                            handler: ^(UIAlertAction *action){
-                                                               result = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
-                                                               jobsDone = YES;
+                                                               BOOL recoveryResult = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
+                                                               handler ? handler(recoveryResult) : NULL;
                                                            }];
             [alert addAction: action];
         }
@@ -99,20 +95,14 @@
             presenter = presenter.presentedViewController;
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
-        
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-        do {
-            [runLoop runMode: runLoop.currentMode beforeDate: [NSDate dateWithTimeIntervalSinceNow: 1.0]];
-        } while (!jobsDone);
     }
-    return result;
 }
 
 - (void)presentError:(NSError *)error modalForWindow:(UIWindow *)window delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo
 {
     NSError *theErrorToPresent = [self willPresentError: error];
     
-    if (theErrorToPresent && ![theErrorToPresent epk_isCancelError]) {
+    if (theErrorToPresent && ![theErrorToPresent epk_isCancelledError]) {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
@@ -157,19 +147,6 @@
             presenter = presenter.presentedViewController;
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
-    } else {
-        //
-        EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
-        [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //
-            [recoverer attemptRecoveryFromError: theErrorToPresent
-                                    optionIndex: 0
-                                       delegate: delegate
-                             didRecoverSelector: didPresentSelector
-                                    contextInfo: contextInfo];
-        });
     }
 }
 

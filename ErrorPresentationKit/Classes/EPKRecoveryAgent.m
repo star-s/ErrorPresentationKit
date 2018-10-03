@@ -8,23 +8,7 @@
 
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
-
-@implementation NSError (RecoveryAgentInjection)
-
-- (NSError *)errorWithRecoveryAgent:(EPKRecoveryAgent *)agent
-{
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary: self.userInfo];
-    
-    if (agent.recoverySuggestion) {
-        userInfo[NSLocalizedRecoverySuggestionErrorKey] = agent.recoverySuggestion;
-    }
-    userInfo[NSLocalizedRecoveryOptionsErrorKey] = agent.recoveryOptionsTitles;
-    userInfo[NSRecoveryAttempterErrorKey] = agent;
-    
-    return [[[self class] alloc] initWithDomain: self.domain code: self.code userInfo: userInfo];
-}
-
-@end
+#import "NSInvocation+RecoveryDelegate.h"
 
 @interface EPKRecoveryAgent ()
 
@@ -59,6 +43,19 @@
     _options = [_options arrayByAddingObject: option];
 }
 
+ -(NSError *)injectIntoError:(NSError *)error
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary: error.userInfo];
+    
+    if (self.recoverySuggestion) {
+        userInfo[NSLocalizedRecoverySuggestionErrorKey] = self.recoverySuggestion;
+    }
+    userInfo[NSLocalizedRecoveryOptionsErrorKey] = self.recoveryOptionsTitles;
+    userInfo[NSRecoveryAttempterErrorKey] = self;
+    
+    return [[[error class] alloc] initWithDomain: error.domain code: error.code userInfo: userInfo];
+}
+
 #pragma mark - Attempt Recovery From Error
 
 - (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex
@@ -68,16 +65,9 @@
 
 - (void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo
 {
-    BOOL recoveryResult = [self.options[recoveryOptionIndex] recoveryFromError: error contextInfo: &contextInfo];
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didRecoverSelector]];
-    
-    [invocation setSelector: didRecoverSelector];
-    
-    [invocation setArgument: &recoveryResult atIndex: 2];
-    [invocation setArgument: &contextInfo    atIndex: 3];
-    
-    [invocation invokeWithTarget: delegate];
+    NSInvocation *invocation = [NSInvocation invocationWithRecoveryDelegate: delegate didRecoverSelector: didRecoverSelector];
+    [invocation invokeWithRecoveryResult: [self.options[recoveryOptionIndex] recoveryFromError: error contextInfo: &contextInfo]
+                             contextInfo: contextInfo];
 }
 
 @end

@@ -15,6 +15,13 @@
 @interface NSResponder (ErrorPresentationLegacy)
 #endif
 
-- (void)presentError:(NSError *)error delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo;
+- (void)presentError:(NSError *)anError DEPRECATED_MSG_ATTRIBUTE("Don't use this method");
+
+- (void)presentError:(NSError *)error
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo DEPRECATED_MSG_ATTRIBUTE("Don't use this method");
+
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
 
 @end

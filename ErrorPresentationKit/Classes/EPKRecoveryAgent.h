@@ -22,11 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addRecoveryOption:(EPKAbstractRecoveryOption *)option;
 
-@end
-
-@interface NSError (RecoveryAgentInjection)
-
-- (NSError *)errorWithRecoveryAgent:(EPKRecoveryAgent *)agent;
+- (NSError *)injectIntoError:(NSError *)error;
 
 @end
 

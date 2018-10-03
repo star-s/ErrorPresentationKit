@@ -43,7 +43,7 @@
  
  You probably shouldn't override this method, because you have no way of reliably predicting whether this method vs. -presentError:modalForWindow:delegate:didPresentSelector:contextInfo: will be invoked for any particular error. You should instead override the -willPresentError: method described below.
  */
-- (BOOL)presentError:(NSError *)error;
+//- (BOOL)presentError:(NSError *)error;
 
 /* Given that the receiver is about to present an error (perhaps by just forwarding it to the next responder), return the error that should actually be presented. The default implementation of this method merely returns the passed-in error.
  

@@ -25,11 +25,6 @@
                          contextInfo: contextInfo];
 }
 
-- (BOOL)presentError:(NSError *)error
-{
-    return [self.nextResponder presentError: [self willPresentError: error]];
-}
-
 - (NSError *)willPresentError:(NSError *)error
 {
     return error;
