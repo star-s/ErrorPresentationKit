@@ -17,5 +17,6 @@ FOUNDATION_EXPORT const unsigned char ErrorPresentationKitVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <ErrorPresentationKit/PublicHeader.h>
 #import <ErrorPresentationKit/EPKRecoveryAgent.h>
 #import <ErrorPresentationKit/EPKRecoveryOption.h>
+#import <ErrorPresentationKit/NSInvocation+RecoveryDelegate.h>
 #import <ErrorPresentationKit/UIApplication+ErrorPresentation.h>
 #import <ErrorPresentationKit/UIResponder+ErrorPresentation.h>

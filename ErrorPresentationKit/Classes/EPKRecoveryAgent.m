@@ -8,6 +8,7 @@
 
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
+#import "NSInvocation+RecoveryDelegate.h"
 
 @implementation NSError (RecoveryAgentInjection)
 
@@ -68,16 +69,9 @@
 
 - (void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo
 {
-    BOOL recoveryResult = [self.options[recoveryOptionIndex] recoveryFromError: error contextInfo: &contextInfo];
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature: [delegate methodSignatureForSelector: didRecoverSelector]];
-    
-    [invocation setSelector: didRecoverSelector];
-    
-    [invocation setArgument: &recoveryResult atIndex: 2];
-    [invocation setArgument: &contextInfo    atIndex: 3];
-    
-    [invocation invokeWithTarget: delegate];
+    NSInvocation *invocation = [NSInvocation invocationWithRecoveryDelegate: delegate didRecoverSelector: didRecoverSelector];
+    [invocation invokeWithRecoveryResult: [self.options[recoveryOptionIndex] recoveryFromError: error contextInfo: &contextInfo]
+                             contextInfo: contextInfo];
 }
 
 @end
