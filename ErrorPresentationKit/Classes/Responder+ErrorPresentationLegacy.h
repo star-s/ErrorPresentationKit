@@ -22,6 +22,4 @@
   didPresentSelector:(nullable SEL)didPresentSelector
          contextInfo:(nullable void *)contextInfo DEPRECATED_MSG_ATTRIBUTE("Don't use this method");
 
-- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
-
 @end

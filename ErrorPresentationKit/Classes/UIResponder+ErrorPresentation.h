@@ -51,6 +51,12 @@
  */
 - (NSError *)willPresentError:(NSError *)error;
 
-@end
+#else
+#import <AppKit/AppKit.h>
 
+@interface NSResponder (ErrorPresentation)
 #endif
+
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
+
+@end

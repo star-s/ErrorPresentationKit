@@ -6,9 +6,9 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
-#if TARGET_OS_IPHONE
-
 #import "UIResponder+ErrorPresentation.h"
+
+#if TARGET_OS_IPHONE
 
 @implementation UIResponder (ErrorPresentation)
 
@@ -30,6 +30,19 @@
     return error;
 }
 
-@end
-
+#else
+@implementation NSResponder (ErrorPresentation)
 #endif
+
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
+{
+#if TARGET_OS_IPHONE
+    [self.nextResponder presentError: [self willPresentError: error] didPresentHandler: handler];
+#else
+    dispatch_async(dispatch_get_main_queue(), ^{
+        handler ? handler([self presentError: error]) : [self presentError: error];
+    });
+#endif
+}
+
+@end

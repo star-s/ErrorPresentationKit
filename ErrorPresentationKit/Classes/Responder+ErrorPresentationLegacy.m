@@ -29,15 +29,4 @@
            contextInfo: contextInfo];
 }
 
-- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
-{
-#if TARGET_OS_IPHONE
-    [self.nextResponder presentError: [self willPresentError: error] didPresentHandler: handler];
-#else
-    dispatch_async(dispatch_get_main_queue(), ^{
-        handler ? handler([self presentError: error]) : [self presentError: error];
-    });
-#endif
-}
-
 @end
