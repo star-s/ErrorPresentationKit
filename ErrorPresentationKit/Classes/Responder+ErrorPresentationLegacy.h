@@ -15,7 +15,7 @@
 @interface NSResponder (ErrorPresentationLegacy)
 #endif
 
-- (void)presentError:(NSError *)anError DEPRECATED_MSG_ATTRIBUTE("Don't use this method");
+- (void)presentError:(NSError *)anError;
 
 - (void)presentError:(NSError *)error
             delegate:(nullable id)delegate

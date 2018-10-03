@@ -17,11 +17,7 @@
 
 - (void)presentError:(NSError *)anError
 {
-    [self presentError: anError
-        modalForWindow: nil
-              delegate: nil
-    didPresentSelector: NULL
-           contextInfo: NULL];
+    [self presentError: anError didPresentHandler: NULL];
 }
 
 - (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
