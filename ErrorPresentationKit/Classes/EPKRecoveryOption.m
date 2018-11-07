@@ -20,7 +20,12 @@
     return self;
 }
 
-- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
+- (BOOL)recoveryInBackground
+{
+    return NO;
+}
+
+- (BOOL)recoveryFromError:(NSError *)error
 {
     [NSException raise: NSInvalidArgumentException format: @"*** -%@ only defined for abstract class. Define %s!", NSStringFromSelector(_cmd), __PRETTY_FUNCTION__];
     return NO;
@@ -54,16 +59,10 @@
     return self;
 }
 
-- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
+- (BOOL)recoveryFromError:(NSError *)error
 {
     return self.recoveryResult;
 }
-
-@end
-
-@interface EPKBlockRecoveryOption ()
-
-@property (atomic, getter=isRecoveryComplete) BOOL recoveryComplete;
 
 @end
 
@@ -84,9 +83,18 @@
     return self;
 }
 
-- (BOOL)recoveryFromError:(NSError *)error contextInfo:(void **)contextInfo
+- (BOOL)recoveryFromError:(NSError *)error
 {
-    return self.recoveryBlock(error, contextInfo);
+    return self.recoveryBlock(error);
+}
+
+@end
+
+@implementation EPKBackgroundRecoveryOption
+
+- (BOOL)recoveryInBackground
+{
+    return YES;
 }
 
 @end
