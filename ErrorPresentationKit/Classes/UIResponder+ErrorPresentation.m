@@ -45,4 +45,9 @@
 #endif
 }
 
+- (void)dismissError
+{
+    [self.nextResponder dismissError];
+}
+
 @end

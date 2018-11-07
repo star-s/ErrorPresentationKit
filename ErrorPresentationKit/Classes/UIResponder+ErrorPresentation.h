@@ -59,4 +59,6 @@
 
 - (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
 
+- (void)dismissError;
+
 @end
