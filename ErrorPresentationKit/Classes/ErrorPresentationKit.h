@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char ErrorPresentationKitVersionString[];
 #import <ErrorPresentationKit/EPKRecoveryAgent.h>
 #import <ErrorPresentationKit/EPKRecoveryOption.h>
 #import <ErrorPresentationKit/NSInvocation+RecoveryDelegate.h>
+#import <ErrorPresentationKit/NSObject+ErrorRecoveryAttempting.h>
 #import <ErrorPresentationKit/UIApplication+ErrorPresentation.h>
 #import <ErrorPresentationKit/UIResponder+ErrorPresentation.h>
 #import <ErrorPresentationKit/Responder+ErrorPresentationLegacy.h>

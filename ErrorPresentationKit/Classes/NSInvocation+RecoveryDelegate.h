@@ -9,8 +9,8 @@
 
 @interface NSInvocation (RecoveryDelegate)
 
-+ (instancetype)invocationWithRecoveryDelegate:(nullable id)delegate
-                            didRecoverSelector:(nullable SEL)didRecoverSelector;
++ (instancetype)invocationWithRecoveryDelegate:(id)delegate
+                            didRecoverSelector:(SEL)didRecoverSelector;
 
 - (void)invokeWithRecoveryResult:(BOOL)result contextInfo:(nullable void *)contextInfo;
 

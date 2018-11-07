@@ -12,6 +12,7 @@
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
+#import "NSObject+ErrorRecoveryAttempting.h"
 
 @interface NSError (CheckForCancel)
 
@@ -71,8 +72,9 @@
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
                                                            handler: ^(UIAlertAction *action){
                                                                id recoverer = [theErrorToPresent recoveryAttempter];
-                                                               BOOL recoveryResult = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx];
-                                                               handler ? handler(recoveryResult) : NULL;
+                                                               [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx resultHandler: ^(BOOL recovered) {
+                                                                   handler ? handler(recovered) : NULL;
+                                                               }];
                                                            }];
             [alert addAction: action];
         }];
@@ -85,8 +87,9 @@
             UIAlertAction *action = [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
                                                              style: UIAlertActionStyleCancel
                                                            handler: ^(UIAlertAction *action){
-                                                               BOOL recoveryResult = [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0];
-                                                               handler ? handler(recoveryResult) : NULL;
+                                                               [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0 resultHandler: ^(BOOL recovered) {
+                                                                   handler ? handler(recovered) : NULL;
+                                                               }];
                                                            }];
             [alert addAction: action];
         }
@@ -108,14 +111,14 @@
                                                                        message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
                                                                 preferredStyle: UIAlertControllerStyleAlert];
         
-        [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
+        [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString *title, NSUInteger idx, BOOL *stop) {
             //
             UIAlertAction *action = [UIAlertAction actionWithTitle: title
                                                              style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
                                                            handler: ^(UIAlertAction *action){
                                                                id recoverer = [theErrorToPresent recoveryAttempter];
                                                                [recoverer attemptRecoveryFromError: theErrorToPresent
-                                                                                       optionIndex: idx
+                                                                                       optionIndex: [alert.actions indexOfObject: action]
                                                                                           delegate: delegate
                                                                                 didRecoverSelector: didPresentSelector
                                                                                        contextInfo: contextInfo];
@@ -132,7 +135,7 @@
                                                               style: UIAlertActionStyleCancel
                                                             handler: ^(UIAlertAction *action){
                                                                 [recoverer attemptRecoveryFromError: theErrorToPresent
-                                                                                        optionIndex: 0
+                                                                                        optionIndex: [alert.actions indexOfObject: action]
                                                                                            delegate: delegate
                                                                                  didRecoverSelector: didPresentSelector
                                                                                         contextInfo: contextInfo];

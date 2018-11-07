@@ -39,17 +39,12 @@ typedef BOOL(^EPKRecoveryBlock)(NSError *error, void * _Nullable * _Nullable con
 @interface EPKBlockRecoveryOption : EPKAbstractRecoveryOption
 
 @property (nonatomic, copy, readonly) EPKRecoveryBlock recoveryBlock;
-@property (nonatomic) BOOL backgroundExecute; // Default - NO
 
 + (instancetype)recoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
-
-+ (instancetype)backgroundRecoveryOptionWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
 
 - (instancetype)initWithTitle:(NSString *)title NS_UNAVAILABLE;
 
 - (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block;
-
-- (instancetype)initWithTitle:(NSString *)title recoveryBlock:(EPKRecoveryBlock)block backgroundExecute:(BOOL)background;
 
 @end
 

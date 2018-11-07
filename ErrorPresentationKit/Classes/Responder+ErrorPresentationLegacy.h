@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface UIResponder (ErrorPresentationLegacy)
+
+- (void)presentError:(NSError *)anError;
+
 #else
 #import <AppKit/AppKit.h>
 
 @interface NSResponder (ErrorPresentationLegacy)
 #endif
-
-- (void)presentError:(NSError *)anError;
 
 - (void)presentError:(NSError *)error
             delegate:(nullable id)delegate
