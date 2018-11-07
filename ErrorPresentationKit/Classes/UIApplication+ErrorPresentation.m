@@ -6,13 +6,14 @@
 //  Copyright © 2017 Sergey Starukhin. All rights reserved.
 //
 
-#if TARGET_OS_IPHONE
-
 #import "UIApplication+ErrorPresentation.h"
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
 #import "NSObject+ErrorRecoveryAttempting.h"
+
+#if TARGET_OS_IPHONE
+
 #import "UIAlertController+Error.h"
 
 @interface NSError (CheckForCancel)
@@ -84,9 +85,9 @@
 
 - (void)presentError:(NSError *)error
       modalForWindow:(UIWindow *)window
-            delegate:(nullable id)delegate
-  didPresentSelector:(nullable SEL)didPresentSelector
-         contextInfo:(nullable void *)contextInfo
+            delegate:(id)delegate
+  didPresentSelector:(SEL)didPresentSelector
+         contextInfo:(void *)contextInfo
 {
     NSError *theErrorToPresent = [self willPresentError: error];
     
@@ -114,6 +115,29 @@
             presenter = presenter.presentedViewController;
         }
         [presenter presentViewController: alert animated: YES completion: NULL];
+    }
+}
+
+@end
+
+#else
+
+@implementation NSApplication (ErrorPresentation)
+
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL))handler
+{
+    NSError *theErrorToPresent = [self willPresentError: error];
+    
+    if (theErrorToPresent) {
+        
+        id recoverer = [theErrorToPresent recoveryAttempter];
+        if (!recoverer) {
+            EPKRecoveryAgent *agent = [[EPKRecoveryAgent alloc] init];
+            [agent addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
+            recoverer = agent;
+        }
+        NSAlert *alert = [NSAlert alertWithError: theErrorToPresent];
+        [recoverer attemptRecoveryFromError: error optionIndex: [alert runModal] resultHandler: handler];
     }
 }
 

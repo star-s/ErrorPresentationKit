@@ -13,10 +13,10 @@
 @implementation UIResponder (ErrorPresentation)
 
 - (void)presentError:(NSError *)error
-      modalForWindow:(nullable UIWindow *)window
-            delegate:(nullable id)delegate
-  didPresentSelector:(nullable SEL)didPresentSelector
-         contextInfo:(nullable void *)contextInfo
+      modalForWindow:(UIWindow *)window
+            delegate:(id)delegate
+  didPresentSelector:(SEL)didPresentSelector
+         contextInfo:(void *)contextInfo
 {
     [self.nextResponder presentError: [self willPresentError: error]
                       modalForWindow: window

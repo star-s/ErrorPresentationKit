@@ -23,11 +23,25 @@
 - (NSError *)willPresentError:(NSError *)error;
 
 - (void)presentError:(NSError *)error
-      modalForWindow:(nullable UIWindow *)window
+      modalForWindow:(UIWindow *)window
             delegate:(nullable id)delegate
   didPresentSelector:(nullable SEL)didPresentSelector
          contextInfo:(nullable void *)contextInfo;
 
 @end
+
+#else
+
+#import <Cocoa/Cocoa.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSApplication (ErrorPresentation)
+
+- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
+
+@end
+
+NS_ASSUME_NONNULL_END
 
 #endif
