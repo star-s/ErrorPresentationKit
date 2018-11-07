@@ -13,6 +13,7 @@
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
 #import "NSObject+ErrorRecoveryAttempting.h"
+#import "UIAlertController+Error.h"
 
 @interface NSError (CheckForCancel)
 
@@ -62,37 +63,17 @@
     
     if (theErrorToPresent && ![theErrorToPresent epk_isCancelledError]) {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
-                                                                       message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
-                                                                preferredStyle: UIAlertControllerStyleAlert];
-        
-        [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString * _Nonnull title, NSUInteger idx, BOOL * _Nonnull stop) {
-            //
-            UIAlertAction *action = [UIAlertAction actionWithTitle: title
-                                                             style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                                           handler: ^(UIAlertAction *action){
-                                                               id recoverer = [theErrorToPresent recoveryAttempter];
-                                                               [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: idx resultHandler: ^(BOOL recovered) {
-                                                                   handler ? handler(recovered) : NULL;
-                                                               }];
-                                                           }];
-            [alert addAction: action];
-        }];
-        
-        if (alert.actions.count == 0) {
-            //
-            EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
-            [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
-
-            UIAlertAction *action = [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
-                                                             style: UIAlertActionStyleCancel
-                                                           handler: ^(UIAlertAction *action){
-                                                               [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: 0 resultHandler: ^(BOOL recovered) {
-                                                                   handler ? handler(recovered) : NULL;
-                                                               }];
-                                                           }];
-            [alert addAction: action];
+        id recoverer = [theErrorToPresent recoveryAttempter];
+        if (!recoverer) {
+            EPKRecoveryAgent *agent = [[EPKRecoveryAgent alloc] init];
+            [agent addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
+            recoverer = agent;
         }
+        UIAlertController *alert = [UIAlertController alertWithError: theErrorToPresent handler: ^(NSInteger recoveryOptionIndex) {
+            [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: recoveryOptionIndex resultHandler: ^(BOOL recovered) {
+                handler ? handler(recovered) : NULL;
+            }];
+        }];
         UIViewController *presenter = self.keyWindow.rootViewController;
         while (presenter.presentedViewController) {
             presenter = presenter.presentedViewController;
@@ -101,47 +82,30 @@
     }
 }
 
-- (void)presentError:(NSError *)error modalForWindow:(UIWindow *)window delegate:(nullable id)delegate didPresentSelector:(nullable SEL)didPresentSelector contextInfo:(nullable void *)contextInfo
+- (void)presentError:(NSError *)error
+      modalForWindow:(UIWindow *)window
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo
 {
     NSError *theErrorToPresent = [self willPresentError: error];
     
     if (theErrorToPresent && ![theErrorToPresent epk_isCancelledError]) {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: theErrorToPresent.localizedDescription
-                                                                       message: [theErrorToPresent recoveryAttempter] ? theErrorToPresent.localizedRecoverySuggestion : nil
-                                                                preferredStyle: UIAlertControllerStyleAlert];
-        
-        [theErrorToPresent.localizedRecoveryOptions enumerateObjectsWithOptions: NSEnumerationReverse usingBlock: ^(NSString *title, NSUInteger idx, BOOL *stop) {
-            //
-            UIAlertAction *action = [UIAlertAction actionWithTitle: title
-                                                             style: idx == 0 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault
-                                                           handler: ^(UIAlertAction *action){
-                                                               id recoverer = [theErrorToPresent recoveryAttempter];
-                                                               [recoverer attemptRecoveryFromError: theErrorToPresent
-                                                                                       optionIndex: [alert.actions indexOfObject: action]
-                                                                                          delegate: delegate
-                                                                                didRecoverSelector: didPresentSelector
-                                                                                       contextInfo: contextInfo];
-                                                           }];
-            [alert addAction: action];
-        }];
-        
-        if (alert.actions.count == 0) {
-            //
-            EPKRecoveryAgent *recoverer = [[EPKRecoveryAgent alloc] init];
-            [recoverer addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
-            
-            UIAlertAction *action =  [UIAlertAction actionWithTitle: recoverer.recoveryOptionsTitles.firstObject
-                                                              style: UIAlertActionStyleCancel
-                                                            handler: ^(UIAlertAction *action){
-                                                                [recoverer attemptRecoveryFromError: theErrorToPresent
-                                                                                        optionIndex: [alert.actions indexOfObject: action]
-                                                                                           delegate: delegate
-                                                                                 didRecoverSelector: didPresentSelector
-                                                                                        contextInfo: contextInfo];
-                                                            }];
-            [alert addAction: action];
+        id recoverer = [theErrorToPresent recoveryAttempter];
+        if (!recoverer) {
+            EPKRecoveryAgent *agent = [[EPKRecoveryAgent alloc] init];
+            [agent addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
+            recoverer = agent;
         }
+        UIAlertController *alert = [UIAlertController alertWithError: theErrorToPresent handler: ^(NSInteger recoveryOptionIndex) {
+            //
+            [recoverer attemptRecoveryFromError: theErrorToPresent
+                                    optionIndex: recoveryOptionIndex
+                                       delegate: delegate
+                             didRecoverSelector: didPresentSelector
+                                    contextInfo: contextInfo];
+        }];
         if (!window) {
             window = [self keyWindow];
         }

@@ -7,28 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AC7ECE70734668DCCC89D037B9B5F3E /* UIApplication+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0593CD2D90B9BB84C0A660C28E32F /* UIApplication+ErrorPresentation.m */; };
+		0E0A1855F8AD2332CACEC757530B95ED /* UIAlertController+Error.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8AFB611328519CF712A138597055A6 /* UIAlertController+Error.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F48E248B920548026817DC686EFB012 /* Pods-ErrorPresentationKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BF7050037A643D07E043CE0A82560AC /* Pods-ErrorPresentationKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F7101ACF93AE13055C727296694D259 /* NSInvocation+RecoveryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7F66E349238F217822C197EA3EEA5 /* NSInvocation+RecoveryDelegate.m */; };
-		241216FB8B1F3F480FDFAD1D64FF2ECB /* NSInvocation+RecoveryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 48ED5289305C9109A383590471BB6F2A /* NSInvocation+RecoveryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		325C2534C89E1C7184F1B5A5D119A02B /* Pods-ErrorPresentationKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22DC9AF2D4E1118FDF072478CFC472BE /* Pods-ErrorPresentationKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39FE214D1BF9001012B3AB00FF26275C /* NSObject+ErrorRecoveryAttempting.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA8A438433CC5EE4C74965E3AFB2764 /* NSObject+ErrorRecoveryAttempting.m */; };
+		3AF56C29DD9801B537ACF6603B2C26B4 /* NSInvocation+RecoveryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 389645C5E7F3A2E41A8D63EDBE8A26C8 /* NSInvocation+RecoveryDelegate.m */; };
+		403506590B784833DDCA490B069A19F8 /* UIApplication+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC97FC34B4C8AC7AF945A3D151EBE2 /* UIApplication+ErrorPresentation.m */; };
 		4B122FAE09EAEC9A9ACE4F64A16882C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		4B5D8392EEC6DA3CD97A85F646ED5E3A /* Pods-ErrorPresentationKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3848BDEA00D00AAEE924A9FEC8A0E18C /* Pods-ErrorPresentationKit_Tests-dummy.m */; };
-		4DBE27BE3F73DC174DF382E420E36676 /* NSObject+ErrorRecoveryAttempting.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C5A92E0E664907B95841686D7E31FE /* NSObject+ErrorRecoveryAttempting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58A1494020D4945FF19A7ACC69051FDA /* UIResponder+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F4F42C8A823644FEE37E896D0E7EE3 /* UIResponder+ErrorPresentation.m */; };
-		5E8807D081B2F7EF8F28C75CA00788BB /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF3108D9957A7E85064D0D8F2D3A2E7 /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7364A0449D166F1E6A2689EEDEFDBAD2 /* Responder+ErrorPresentationLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEF60B64242DC488D631B5EF265817 /* Responder+ErrorPresentationLegacy.m */; };
-		87418D25C465AFEE0D67B4E63A4A432A /* NSObject+ErrorRecoveryAttempting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DC6E320E6A9B9518BE5226795B671 /* NSObject+ErrorRecoveryAttempting.m */; };
-		889EDB5E2F067ACCC1B4337CD90FA6E2 /* EPKRecoveryOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 37398CD7B9EF27E89D0BAC3279355F02 /* EPKRecoveryOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		90EEE6358115E476E54A0F9A0E225B41 /* ErrorPresentationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D77E5B99226360C15B853E94FA502865 /* ErrorPresentationKit-dummy.m */; };
-		913A2D60FBE6184CBEEA04E2770BF984 /* UIResponder+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 736449A8BAB2A68D3ACE4554743CFD21 /* UIResponder+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DA8D3A53608924D8438C46DC0CD9DBC /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9439B224A0302D2A5F8D11CCFB660E0F /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9E7A72001B90D18277097FFF51C7F446 /* EPKRecoveryOption.m in Sources */ = {isa = PBXBuildFile; fileRef = C8056D114BD1684FA1F37DAE38BF4CEA /* EPKRecoveryOption.m */; };
-		AA1F4863903FC50DDF74FA6FF40F67DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		B61329378126DAC14D098ECC24A4DCED /* UIApplication+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9B0B3464CDBED6AB594A6900B803E7 /* UIApplication+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66C25E9F5FA9F3E2AABCAF1B194AED49 /* UIAlertController+Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 7594155CA4C690B3218CBDBF657261D4 /* UIAlertController+Error.m */; };
+		67916F45A1E73D65BA4454387CE601B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		7D5C409CF6A43E5A4554F30C2F762EE8 /* Responder+ErrorPresentationLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4564A82EC3146FFDC4A853529E81C /* Responder+ErrorPresentationLegacy.m */; };
+		827C2F544AB93758B5A91755F20E8133 /* EPKRecoveryAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 81146290F976A9966268C07EED6C455B /* EPKRecoveryAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FBE6982ACB671D6DBD7CF2E65C3F685 /* EPKRecoveryOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EDB75FDB0A38DA975E18815850AFF6 /* EPKRecoveryOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B79A9CED0845BDD4FD43821F0F460143 /* UIResponder+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9317C581166517DE37E409CB5CF305 /* UIResponder+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF51CECACDE118F7D1F7BC4A1928871F /* EPKRecoveryOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C47ED1268C1D84D52CD37A4672D6E09 /* EPKRecoveryOption.m */; };
+		C8193054351D7587AC95295E3270721A /* UIApplication+ErrorPresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 143288F8E47C4826BD9C325F4B2D517E /* UIApplication+ErrorPresentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEF1E228AE6F51D308209604B82D327D /* ErrorPresentationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB10E54BE8E213F576490D65B354F7A /* ErrorPresentationKit-dummy.m */; };
+		D016E91980FADD99B13D11ABB7984201 /* Responder+ErrorPresentationLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0555F32CAD475D569A3C426CC5FAA41F /* Responder+ErrorPresentationLegacy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D051A4ACF9355C7F6F01A4FB132A3177 /* Pods-ErrorPresentationKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B5D74B6B175FE1494BA47595EE9FEE /* Pods-ErrorPresentationKit_Example-dummy.m */; };
-		D9FF42AAB2B4AFA7B0003420BC94EE2A /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EEBE40F5C274F2D131EC3D0B12636 /* EPKRecoveryAgent.m */; };
-		DD7165D5095A6A2836B39A446E3D6896 /* Responder+ErrorPresentationLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = 63DC0A8ABC37C2BA362D4DA1A1B5A555 /* Responder+ErrorPresentationLegacy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2386C1D950BF73F11F05E79498DB19C /* EPKRecoveryAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FCBBD2256ECA541F98D7EC4C508D79 /* EPKRecoveryAgent.m */; };
+		D73DF3B1EE071702AA091B9D9E6EB98C /* UIResponder+ErrorPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2010D51C0059E4648E851C5B677E6EC0 /* UIResponder+ErrorPresentation.m */; };
+		E573E94527CED61CC8CC3073A6844C60 /* ErrorPresentationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB068F92D36710920F3E5D4EDAC63FE /* ErrorPresentationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D69CBA2EC6E8633C1708D7D0F44DB1 /* NSObject+ErrorRecoveryAttempting.h in Headers */ = {isa = PBXBuildFile; fileRef = 275F48BB80BC561AA6A5570698AF3E9F /* NSObject+ErrorRecoveryAttempting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAC49E6ACA03C1641D7E2C02332C0AD8 /* NSInvocation+RecoveryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EA0C9D78E7F00D94567B91E91F437D2E /* NSInvocation+RecoveryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB818149EE5C2800D7099AB59CDEC4C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +39,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 495D02D16DEF420A1F90EB27ED92FF71;
+			remoteGlobalIDString = D5C4D6EA195D3E2400F68792FA0F4755;
 			remoteInfo = ErrorPresentationKit;
 		};
 		4AA1E6BC75000F7211C6C0060E2BD962 /* PBXContainerItemProxy */ = {
@@ -51,70 +53,72 @@
 
 /* Begin PBXFileReference section */
 		00862919D7D391A5DE403C118FCC264B /* Pods-ErrorPresentationKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ErrorPresentationKit_Example.modulemap"; sourceTree = "<group>"; };
-		0D7DC6E320E6A9B9518BE5226795B671 /* NSObject+ErrorRecoveryAttempting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ErrorRecoveryAttempting.m"; path = "ErrorPresentationKit/Classes/NSObject+ErrorRecoveryAttempting.m"; sourceTree = "<group>"; };
+		0555F32CAD475D569A3C426CC5FAA41F /* Responder+ErrorPresentationLegacy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Responder+ErrorPresentationLegacy.h"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.h"; sourceTree = "<group>"; };
 		0E9CC503D9FB4B5F2EA2DFE26CF5A4EF /* Pods-ErrorPresentationKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Example-frameworks.sh"; sourceTree = "<group>"; };
+		143288F8E47C4826BD9C325F4B2D517E /* UIApplication+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.h"; sourceTree = "<group>"; };
 		14FEA24D67611D1EF3CF5D526DFC939E /* Pods-ErrorPresentationKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		2010D51C0059E4648E851C5B677E6EC0 /* UIResponder+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.m"; sourceTree = "<group>"; };
 		22DC9AF2D4E1118FDF072478CFC472BE /* Pods-ErrorPresentationKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ErrorPresentationKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		275362B5F97FD55B918AC70C1D6E284F /* ErrorPresentationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ErrorPresentationKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		2A7EEBE40F5C274F2D131EC3D0B12636 /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryAgent.m; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.m; sourceTree = "<group>"; };
-		37398CD7B9EF27E89D0BAC3279355F02 /* EPKRecoveryOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryOption.h; path = ErrorPresentationKit/Classes/EPKRecoveryOption.h; sourceTree = "<group>"; };
+		275F48BB80BC561AA6A5570698AF3E9F /* NSObject+ErrorRecoveryAttempting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+ErrorRecoveryAttempting.h"; path = "ErrorPresentationKit/Classes/NSObject+ErrorRecoveryAttempting.h"; sourceTree = "<group>"; };
+		2CB068F92D36710920F3E5D4EDAC63FE /* ErrorPresentationKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ErrorPresentationKit.h; path = ErrorPresentationKit/Classes/ErrorPresentationKit.h; sourceTree = "<group>"; };
 		3848BDEA00D00AAEE924A9FEC8A0E18C /* Pods-ErrorPresentationKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ErrorPresentationKit_Tests-dummy.m"; sourceTree = "<group>"; };
+		389645C5E7F3A2E41A8D63EDBE8A26C8 /* NSInvocation+RecoveryDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+RecoveryDelegate.m"; path = "ErrorPresentationKit/Classes/NSInvocation+RecoveryDelegate.m"; sourceTree = "<group>"; };
 		43162975E3B250407D2AF5C5502C0516 /* Pods-ErrorPresentationKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		48ED5289305C9109A383590471BB6F2A /* NSInvocation+RecoveryDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+RecoveryDelegate.h"; path = "ErrorPresentationKit/Classes/NSInvocation+RecoveryDelegate.h"; sourceTree = "<group>"; };
-		57C5A92E0E664907B95841686D7E31FE /* NSObject+ErrorRecoveryAttempting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+ErrorRecoveryAttempting.h"; path = "ErrorPresentationKit/Classes/NSObject+ErrorRecoveryAttempting.h"; sourceTree = "<group>"; };
+		4431119D000D0E15C1E0E019FEAAFA5F /* ErrorPresentationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ErrorPresentationKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4A9317C581166517DE37E409CB5CF305 /* UIResponder+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIResponder+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.h"; sourceTree = "<group>"; };
+		57ED1F412BC7A97EBE99C1312274F040 /* ErrorPresentationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ErrorPresentationKit-prefix.pch"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C47ED1268C1D84D52CD37A4672D6E09 /* EPKRecoveryOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryOption.m; path = ErrorPresentationKit/Classes/EPKRecoveryOption.m; sourceTree = "<group>"; };
 		6308C4EBCB20D12C95CAFF4CAF01FE2B /* Pods-ErrorPresentationKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ErrorPresentationKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		63DC0A8ABC37C2BA362D4DA1A1B5A555 /* Responder+ErrorPresentationLegacy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Responder+ErrorPresentationLegacy.h"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.h"; sourceTree = "<group>"; };
 		658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ErrorPresentationKit.framework; path = ErrorPresentationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B5D74B6B175FE1494BA47595EE9FEE /* Pods-ErrorPresentationKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ErrorPresentationKit_Example-dummy.m"; sourceTree = "<group>"; };
-		69AEF60B64242DC488D631B5EF265817 /* Responder+ErrorPresentationLegacy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Responder+ErrorPresentationLegacy.m"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.m"; sourceTree = "<group>"; };
-		736449A8BAB2A68D3ACE4554743CFD21 /* UIResponder+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIResponder+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.h"; sourceTree = "<group>"; };
+		7594155CA4C690B3218CBDBF657261D4 /* UIAlertController+Error.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertController+Error.m"; path = "ErrorPresentationKit/Classes/UIAlertController+Error.m"; sourceTree = "<group>"; };
 		767BFB73727060961FFB4BBAA957EB56 /* Pods-ErrorPresentationKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ErrorPresentationKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		77A773BADC152B16418F324E0ABD1BD9 /* ErrorPresentationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ErrorPresentationKit-prefix.pch"; sourceTree = "<group>"; };
-		77C0593CD2D90B9BB84C0A660C28E32F /* UIApplication+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.m"; sourceTree = "<group>"; };
 		7993DBDAC1D9184CED91AD0C7DEBBB25 /* Pods-ErrorPresentationKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		79FCBBD2256ECA541F98D7EC4C508D79 /* EPKRecoveryAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryAgent.m; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.m; sourceTree = "<group>"; };
+		7EB4564A82EC3146FFDC4A853529E81C /* Responder+ErrorPresentationLegacy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Responder+ErrorPresentationLegacy.m"; path = "ErrorPresentationKit/Classes/Responder+ErrorPresentationLegacy.m"; sourceTree = "<group>"; };
+		81146290F976A9966268C07EED6C455B /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryAgent.h; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.h; sourceTree = "<group>"; };
 		8748FF8D77E6A61618A032B1889C0299 /* Pods-ErrorPresentationKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8BF7050037A643D07E043CE0A82560AC /* Pods-ErrorPresentationKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ErrorPresentationKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		8E795178417C3125B583025A564A1424 /* Pods-ErrorPresentationKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ErrorPresentationKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8FDC97FC34B4C8AC7AF945A3D151EBE2 /* UIApplication+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.m"; sourceTree = "<group>"; };
+		90EDB75FDB0A38DA975E18815850AFF6 /* EPKRecoveryOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryOption.h; path = ErrorPresentationKit/Classes/EPKRecoveryOption.h; sourceTree = "<group>"; };
 		91AEFB3398B467108FCF8F6FA21FEB16 /* Pods-ErrorPresentationKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ErrorPresentationKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		939BFC6DEDE92678218E9AC2C5EBBB25 /* Pods-ErrorPresentationKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Example-resources.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9439B224A0302D2A5F8D11CCFB660E0F /* ErrorPresentationKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ErrorPresentationKit.h; path = ErrorPresentationKit/Classes/ErrorPresentationKit.h; sourceTree = "<group>"; };
-		95C7F66E349238F217822C197EA3EEA5 /* NSInvocation+RecoveryDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+RecoveryDelegate.m"; path = "ErrorPresentationKit/Classes/NSInvocation+RecoveryDelegate.m"; sourceTree = "<group>"; };
+		95D00159AD831F3305694586C129CB82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C29C636424770924A0E717E1BE077BD /* Pods_ErrorPresentationKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ErrorPresentationKit_Example.framework; path = "Pods-ErrorPresentationKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F50874D7507D8BC45FF68B085B1A2F7 /* Pods_ErrorPresentationKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ErrorPresentationKit_Tests.framework; path = "Pods-ErrorPresentationKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACF3108D9957A7E85064D0D8F2D3A2E7 /* EPKRecoveryAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EPKRecoveryAgent.h; path = ErrorPresentationKit/Classes/EPKRecoveryAgent.h; sourceTree = "<group>"; };
-		AFA07F1BEF5952C8EBFDEBAA0F533C63 /* ErrorPresentationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ErrorPresentationKit.xcconfig; sourceTree = "<group>"; };
+		A3D19F9BF05B13ACB5BB1A6E4192C9FD /* ErrorPresentationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ErrorPresentationKit.xcconfig; sourceTree = "<group>"; };
+		AA04F82877EF928EBB9DE05857B1B60C /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = ErrorPresentationKit.modulemap; path = ErrorPresentationKit/ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
 		B1F5DAE21BB6E491C626D09AE833154D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7D64D8225B2585B030E0A8EAE597B94 /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = ErrorPresentationKit.modulemap; path = ErrorPresentationKit/ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
-		B88D57F5BA1D2BFAE188B134A66ED77B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B7AFC81547DC1233E5000B6C5D0904EA /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
 		B8D71C2FF4C005FD480709D41B9D669C /* Pods-ErrorPresentationKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ErrorPresentationKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA8AFB611328519CF712A138597055A6 /* UIAlertController+Error.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertController+Error.h"; path = "ErrorPresentationKit/Classes/UIAlertController+Error.h"; sourceTree = "<group>"; };
 		BB5491E96693505067F4F27FB28E2084 /* Pods-ErrorPresentationKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ErrorPresentationKit_Tests.modulemap"; sourceTree = "<group>"; };
-		C1F4F42C8A823644FEE37E896D0E7EE3 /* UIResponder+ErrorPresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+ErrorPresentation.m"; path = "ErrorPresentationKit/Classes/UIResponder+ErrorPresentation.m"; sourceTree = "<group>"; };
-		C8056D114BD1684FA1F37DAE38BF4CEA /* EPKRecoveryOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EPKRecoveryOption.m; path = ErrorPresentationKit/Classes/EPKRecoveryOption.m; sourceTree = "<group>"; };
-		D2C64377E41A68969EE33DBF7774A921 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		D77E5B99226360C15B853E94FA502865 /* ErrorPresentationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ErrorPresentationKit-dummy.m"; sourceTree = "<group>"; };
+		BE1C54CDA8F1890ACB8293464E4A62A2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D68041ADAF23561783452C8335B967E3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		EA0C9D78E7F00D94567B91E91F437D2E /* NSInvocation+RecoveryDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+RecoveryDelegate.h"; path = "ErrorPresentationKit/Classes/NSInvocation+RecoveryDelegate.h"; sourceTree = "<group>"; };
 		ECE7EEACD46EB2D5CBE0AFD6BA182BEF /* Pods-ErrorPresentationKit_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ErrorPresentationKit_Tests-resources.sh"; sourceTree = "<group>"; };
-		EE5014A50FB43806D47A26439A2C3419 /* ErrorPresentationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ErrorPresentationKit.modulemap; sourceTree = "<group>"; };
-		F24BEC06BC74970FB97F6CB8AB6AA0D7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEB10E54BE8E213F576490D65B354F7A /* ErrorPresentationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ErrorPresentationKit-dummy.m"; sourceTree = "<group>"; };
 		FB930C2C7C8F20BF2C00F9E8BB8FCC03 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB9B0B3464CDBED6AB594A6900B803E7 /* UIApplication+ErrorPresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+ErrorPresentation.h"; path = "ErrorPresentationKit/Classes/UIApplication+ErrorPresentation.h"; sourceTree = "<group>"; };
+		FCA8A438433CC5EE4C74965E3AFB2764 /* NSObject+ErrorRecoveryAttempting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ErrorRecoveryAttempting.m"; path = "ErrorPresentationKit/Classes/NSObject+ErrorRecoveryAttempting.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3DD6905E0B217409AB9845AE46C8E17F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA1F4863903FC50DDF74FA6FF40F67DA /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9BC7F168008BF2BD738C5E9504910F03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B122FAE09EAEC9A9ACE4F64A16882C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5CC1725AB6AF103A1076A0C36322EB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67916F45A1E73D65BA4454387CE601B2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,15 +143,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4AC85391CBE2DB792DD26BA1D6E49E3F /* Pod */ = {
+		381B65D8A058444CADEAEB02776F4AB2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B7D64D8225B2585B030E0A8EAE597B94 /* ErrorPresentationKit.modulemap */,
-				275362B5F97FD55B918AC70C1D6E284F /* ErrorPresentationKit.podspec */,
-				B88D57F5BA1D2BFAE188B134A66ED77B /* LICENSE */,
-				D2C64377E41A68969EE33DBF7774A921 /* README.md */,
+				B7AFC81547DC1233E5000B6C5D0904EA /* ErrorPresentationKit.modulemap */,
+				A3D19F9BF05B13ACB5BB1A6E4192C9FD /* ErrorPresentationKit.xcconfig */,
+				EEB10E54BE8E213F576490D65B354F7A /* ErrorPresentationKit-dummy.m */,
+				57ED1F412BC7A97EBE99C1312274F040 /* ErrorPresentationKit-prefix.pch */,
+				95D00159AD831F3305694586C129CB82 /* Info.plist */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ErrorPresentationKit";
 			sourceTree = "<group>";
 		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
@@ -158,53 +164,15 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		736855403A61761CEAA9A6CCEB8ED194 /* ErrorPresentationKit */ = {
-			isa = PBXGroup;
-			children = (
-				ACF3108D9957A7E85064D0D8F2D3A2E7 /* EPKRecoveryAgent.h */,
-				2A7EEBE40F5C274F2D131EC3D0B12636 /* EPKRecoveryAgent.m */,
-				37398CD7B9EF27E89D0BAC3279355F02 /* EPKRecoveryOption.h */,
-				C8056D114BD1684FA1F37DAE38BF4CEA /* EPKRecoveryOption.m */,
-				9439B224A0302D2A5F8D11CCFB660E0F /* ErrorPresentationKit.h */,
-				48ED5289305C9109A383590471BB6F2A /* NSInvocation+RecoveryDelegate.h */,
-				95C7F66E349238F217822C197EA3EEA5 /* NSInvocation+RecoveryDelegate.m */,
-				57C5A92E0E664907B95841686D7E31FE /* NSObject+ErrorRecoveryAttempting.h */,
-				0D7DC6E320E6A9B9518BE5226795B671 /* NSObject+ErrorRecoveryAttempting.m */,
-				63DC0A8ABC37C2BA362D4DA1A1B5A555 /* Responder+ErrorPresentationLegacy.h */,
-				69AEF60B64242DC488D631B5EF265817 /* Responder+ErrorPresentationLegacy.m */,
-				FB9B0B3464CDBED6AB594A6900B803E7 /* UIApplication+ErrorPresentation.h */,
-				77C0593CD2D90B9BB84C0A660C28E32F /* UIApplication+ErrorPresentation.m */,
-				736449A8BAB2A68D3ACE4554743CFD21 /* UIResponder+ErrorPresentation.h */,
-				C1F4F42C8A823644FEE37E896D0E7EE3 /* UIResponder+ErrorPresentation.m */,
-				4AC85391CBE2DB792DD26BA1D6E49E3F /* Pod */,
-				835834AEE49D4419F71C120B9114EBDB /* Support Files */,
-			);
-			name = ErrorPresentationKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				97433A3E0F4ADE454E6917AC5326BAAA /* Development Pods */,
+				D52685F4156F3534A6ECE0BBE4D4EE9F /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				30899B344865B7F533FD20C18E6522C0 /* Products */,
 				A040E16FEC86EDAB60806CDEA02A196D /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		835834AEE49D4419F71C120B9114EBDB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EE5014A50FB43806D47A26439A2C3419 /* ErrorPresentationKit.modulemap */,
-				AFA07F1BEF5952C8EBFDEBAA0F533C63 /* ErrorPresentationKit.xcconfig */,
-				D77E5B99226360C15B853E94FA502865 /* ErrorPresentationKit-dummy.m */,
-				77A773BADC152B16418F324E0ABD1BD9 /* ErrorPresentationKit-prefix.pch */,
-				F24BEC06BC74970FB97F6CB8AB6AA0D7 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/ErrorPresentationKit";
 			sourceTree = "<group>";
 		};
 		8B1ECAECFEFB98CEC59DCA7F0E6E3DB1 /* Pods-ErrorPresentationKit_Tests */ = {
@@ -243,12 +211,31 @@
 			path = "Target Support Files/Pods-ErrorPresentationKit_Example";
 			sourceTree = "<group>";
 		};
-		97433A3E0F4ADE454E6917AC5326BAAA /* Development Pods */ = {
+		98B4BB54DF0D6E5C4636FB03F2F744A3 /* ErrorPresentationKit */ = {
 			isa = PBXGroup;
 			children = (
-				736855403A61761CEAA9A6CCEB8ED194 /* ErrorPresentationKit */,
+				81146290F976A9966268C07EED6C455B /* EPKRecoveryAgent.h */,
+				79FCBBD2256ECA541F98D7EC4C508D79 /* EPKRecoveryAgent.m */,
+				90EDB75FDB0A38DA975E18815850AFF6 /* EPKRecoveryOption.h */,
+				5C47ED1268C1D84D52CD37A4672D6E09 /* EPKRecoveryOption.m */,
+				2CB068F92D36710920F3E5D4EDAC63FE /* ErrorPresentationKit.h */,
+				EA0C9D78E7F00D94567B91E91F437D2E /* NSInvocation+RecoveryDelegate.h */,
+				389645C5E7F3A2E41A8D63EDBE8A26C8 /* NSInvocation+RecoveryDelegate.m */,
+				275F48BB80BC561AA6A5570698AF3E9F /* NSObject+ErrorRecoveryAttempting.h */,
+				FCA8A438433CC5EE4C74965E3AFB2764 /* NSObject+ErrorRecoveryAttempting.m */,
+				0555F32CAD475D569A3C426CC5FAA41F /* Responder+ErrorPresentationLegacy.h */,
+				7EB4564A82EC3146FFDC4A853529E81C /* Responder+ErrorPresentationLegacy.m */,
+				BA8AFB611328519CF712A138597055A6 /* UIAlertController+Error.h */,
+				7594155CA4C690B3218CBDBF657261D4 /* UIAlertController+Error.m */,
+				143288F8E47C4826BD9C325F4B2D517E /* UIApplication+ErrorPresentation.h */,
+				8FDC97FC34B4C8AC7AF945A3D151EBE2 /* UIApplication+ErrorPresentation.m */,
+				4A9317C581166517DE37E409CB5CF305 /* UIResponder+ErrorPresentation.h */,
+				2010D51C0059E4648E851C5B677E6EC0 /* UIResponder+ErrorPresentation.m */,
+				B593C869E7D98F39E9251435EC3DC86B /* Pod */,
+				381B65D8A058444CADEAEB02776F4AB2 /* Support Files */,
 			);
-			name = "Development Pods";
+			name = ErrorPresentationKit;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		A040E16FEC86EDAB60806CDEA02A196D /* Targets Support Files */ = {
@@ -260,6 +247,17 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		B593C869E7D98F39E9251435EC3DC86B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AA04F82877EF928EBB9DE05857B1B60C /* ErrorPresentationKit.modulemap */,
+				4431119D000D0E15C1E0E019FEAAFA5F /* ErrorPresentationKit.podspec */,
+				D68041ADAF23561783452C8335B967E3 /* LICENSE */,
+				BE1C54CDA8F1890ACB8293464E4A62A2 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,29 +266,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D52685F4156F3534A6ECE0BBE4D4EE9F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98B4BB54DF0D6E5C4636FB03F2F744A3 /* ErrorPresentationKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1121BB1572288D605A2EDDAAE57D464B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C2F544AB93758B5A91755F20E8133 /* EPKRecoveryAgent.h in Headers */,
+				9FBE6982ACB671D6DBD7CF2E65C3F685 /* EPKRecoveryOption.h in Headers */,
+				E573E94527CED61CC8CC3073A6844C60 /* ErrorPresentationKit.h in Headers */,
+				FAC49E6ACA03C1641D7E2C02332C0AD8 /* NSInvocation+RecoveryDelegate.h in Headers */,
+				E9D69CBA2EC6E8633C1708D7D0F44DB1 /* NSObject+ErrorRecoveryAttempting.h in Headers */,
+				D016E91980FADD99B13D11ABB7984201 /* Responder+ErrorPresentationLegacy.h in Headers */,
+				0E0A1855F8AD2332CACEC757530B95ED /* UIAlertController+Error.h in Headers */,
+				C8193054351D7587AC95295E3270721A /* UIApplication+ErrorPresentation.h in Headers */,
+				B79A9CED0845BDD4FD43821F0F460143 /* UIResponder+ErrorPresentation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16100E6C95938FBFC229E197F7B1803C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1F48E248B920548026817DC686EFB012 /* Pods-ErrorPresentationKit_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		25182F26F6857FC141825B2787801ABE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5E8807D081B2F7EF8F28C75CA00788BB /* EPKRecoveryAgent.h in Headers */,
-				889EDB5E2F067ACCC1B4337CD90FA6E2 /* EPKRecoveryOption.h in Headers */,
-				9DA8D3A53608924D8438C46DC0CD9DBC /* ErrorPresentationKit.h in Headers */,
-				241216FB8B1F3F480FDFAD1D64FF2ECB /* NSInvocation+RecoveryDelegate.h in Headers */,
-				4DBE27BE3F73DC174DF382E420E36676 /* NSObject+ErrorRecoveryAttempting.h in Headers */,
-				DD7165D5095A6A2836B39A446E3D6896 /* Responder+ErrorPresentationLegacy.h in Headers */,
-				B61329378126DAC14D098ECC24A4DCED /* UIApplication+ErrorPresentation.h in Headers */,
-				913A2D60FBE6184CBEEA04E2770BF984 /* UIResponder+ErrorPresentation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,24 +331,6 @@
 			productReference = 9C29C636424770924A0E717E1BE077BD /* Pods_ErrorPresentationKit_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		495D02D16DEF420A1F90EB27ED92FF71 /* ErrorPresentationKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4FDD2395AF4ED7A7EA17EFCCF3FBE0EA /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */;
-			buildPhases = (
-				25182F26F6857FC141825B2787801ABE /* Headers */,
-				66A1233FA658EA7108842566A2FEF112 /* Sources */,
-				3DD6905E0B217409AB9845AE46C8E17F /* Frameworks */,
-				FD36D93B8236864C8A935F86A0987158 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ErrorPresentationKit;
-			productName = ErrorPresentationKit;
-			productReference = 658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		86F363BE586B9395F2A47C1E5952807A /* Pods-ErrorPresentationKit_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DE31E0E435FCEE466F7357433DB63AA /* Build configuration list for PBXNativeTarget "Pods-ErrorPresentationKit_Tests" */;
@@ -359,6 +348,24 @@
 			name = "Pods-ErrorPresentationKit_Tests";
 			productName = "Pods-ErrorPresentationKit_Tests";
 			productReference = 9F50874D7507D8BC45FF68B085B1A2F7 /* Pods_ErrorPresentationKit_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5C4D6EA195D3E2400F68792FA0F4755 /* ErrorPresentationKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E341D28C4672DFA1B0C95D2D4B59C98B /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */;
+			buildPhases = (
+				1121BB1572288D605A2EDDAAE57D464B /* Headers */,
+				B8464E14EE0A3580504B1A967E071F04 /* Sources */,
+				D5CC1725AB6AF103A1076A0C36322EB6 /* Frameworks */,
+				7EAE1683CDBF7D87E2B5C20270D1EFE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ErrorPresentationKit;
+			productName = ErrorPresentationKit;
+			productReference = 658F9BB0A430419A6E0F7D10458732E4 /* ErrorPresentationKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -382,7 +389,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				495D02D16DEF420A1F90EB27ED92FF71 /* ErrorPresentationKit */,
+				D5C4D6EA195D3E2400F68792FA0F4755 /* ErrorPresentationKit */,
 				27B2AD41FB794A1CA63CFE7E484034B5 /* Pods-ErrorPresentationKit_Example */,
 				86F363BE586B9395F2A47C1E5952807A /* Pods-ErrorPresentationKit_Tests */,
 			);
@@ -404,7 +411,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD36D93B8236864C8A935F86A0987158 /* Resources */ = {
+		7EAE1683CDBF7D87E2B5C20270D1EFE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,26 +421,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		66A1233FA658EA7108842566A2FEF112 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9FF42AAB2B4AFA7B0003420BC94EE2A /* EPKRecoveryAgent.m in Sources */,
-				9E7A72001B90D18277097FFF51C7F446 /* EPKRecoveryOption.m in Sources */,
-				90EEE6358115E476E54A0F9A0E225B41 /* ErrorPresentationKit-dummy.m in Sources */,
-				1F7101ACF93AE13055C727296694D259 /* NSInvocation+RecoveryDelegate.m in Sources */,
-				87418D25C465AFEE0D67B4E63A4A432A /* NSObject+ErrorRecoveryAttempting.m in Sources */,
-				7364A0449D166F1E6A2689EEDEFDBAD2 /* Responder+ErrorPresentationLegacy.m in Sources */,
-				1AC7ECE70734668DCCC89D037B9B5F3E /* UIApplication+ErrorPresentation.m in Sources */,
-				58A1494020D4945FF19A7ACC69051FDA /* UIResponder+ErrorPresentation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AF648D884ED493524DAD1C5ADFBD8213 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B5D8392EEC6DA3CD97A85F646ED5E3A /* Pods-ErrorPresentationKit_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8464E14EE0A3580504B1A967E071F04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2386C1D950BF73F11F05E79498DB19C /* EPKRecoveryAgent.m in Sources */,
+				BF51CECACDE118F7D1F7BC4A1928871F /* EPKRecoveryOption.m in Sources */,
+				CEF1E228AE6F51D308209604B82D327D /* ErrorPresentationKit-dummy.m in Sources */,
+				3AF56C29DD9801B537ACF6603B2C26B4 /* NSInvocation+RecoveryDelegate.m in Sources */,
+				39FE214D1BF9001012B3AB00FF26275C /* NSObject+ErrorRecoveryAttempting.m in Sources */,
+				7D5C409CF6A43E5A4554F30C2F762EE8 /* Responder+ErrorPresentationLegacy.m in Sources */,
+				66C25E9F5FA9F3E2AABCAF1B194AED49 /* UIAlertController+Error.m in Sources */,
+				403506590B784833DDCA490B069A19F8 /* UIApplication+ErrorPresentation.m in Sources */,
+				D73DF3B1EE071702AA091B9D9E6EB98C /* UIResponder+ErrorPresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +465,7 @@
 		6D114C6E86DA1E3BCEC19AD150917549 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ErrorPresentationKit;
-			target = 495D02D16DEF420A1F90EB27ED92FF71 /* ErrorPresentationKit */;
+			target = D5C4D6EA195D3E2400F68792FA0F4755 /* ErrorPresentationKit */;
 			targetProxy = 150D7842909F18E7E76DAAB222B78E2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -653,9 +661,9 @@
 			};
 			name = Release;
 		};
-		B2CA933EA90A33E50BE3D0D95CCD2317 /* Release */ = {
+		A9352429B5643D1461EF37014A00DB72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFA07F1BEF5952C8EBFDEBAA0F533C63 /* ErrorPresentationKit.xcconfig */;
+			baseConfigurationReference = A3D19F9BF05B13ACB5BB1A6E4192C9FD /* ErrorPresentationKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -684,9 +692,9 @@
 			};
 			name = Release;
 		};
-		B6DB960586CB6C150DF7E78111E8A162 /* Debug */ = {
+		A9BDF42A0E082C23BA182E914CAB3DF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFA07F1BEF5952C8EBFDEBAA0F533C63 /* ErrorPresentationKit.xcconfig */;
+			baseConfigurationReference = A3D19F9BF05B13ACB5BB1A6E4192C9FD /* ErrorPresentationKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -793,20 +801,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FDD2395AF4ED7A7EA17EFCCF3FBE0EA /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6DB960586CB6C150DF7E78111E8A162 /* Debug */,
-				B2CA933EA90A33E50BE3D0D95CCD2317 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9DE31E0E435FCEE466F7357433DB63AA /* Build configuration list for PBXNativeTarget "Pods-ErrorPresentationKit_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CBDEB495B94B4BE421A73BE3B25992 /* Debug */,
 				58240EDF7B435538088EB85C97F60609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E341D28C4672DFA1B0C95D2D4B59C98B /* Build configuration list for PBXNativeTarget "ErrorPresentationKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BDF42A0E082C23BA182E914CAB3DF7 /* Debug */,
+				A9352429B5643D1461EF37014A00DB72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

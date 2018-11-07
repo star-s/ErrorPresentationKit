@@ -22,8 +22,6 @@
 
 - (NSError *)willPresentError:(NSError *)error;
 
-//- (BOOL)presentError:(NSError *)anError;
-
 - (void)presentError:(NSError *)error
       modalForWindow:(nullable UIWindow *)window
             delegate:(nullable id)delegate
