@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIResponder (ErrorPresentation)
+@interface UIResponder (ErrorPresentationAdditions)
 
 /* Present an error alert to the user. When the user has dismissed the alert and any recovery possible for the error and chosen by the user has been attempted, send the selected message to the specified delegate. The method selected by didPresentSelector must have the same signature as:
  
@@ -51,14 +51,13 @@
  */
 - (NSError *)willPresentError:(NSError *)error;
 
-#else
-#import <AppKit/AppKit.h>
+- (void)presentError:(NSError *)anError;
 
-@interface NSResponder (ErrorPresentation)
-#endif
-
-- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
-
-- (void)dismissError;
+- (void)presentError:(NSError *)error
+            delegate:(nullable id)delegate
+  didPresentSelector:(nullable SEL)didPresentSelector
+         contextInfo:(nullable void *)contextInfo DEPRECATED_MSG_ATTRIBUTE("Don't use this method");
 
 @end
+
+#endif

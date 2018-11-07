@@ -7,10 +7,12 @@
 //
 
 #import "UIResponder+ErrorPresentation.h"
+#import "Responder+ErrorPresentation.h"
+#import "NSInvocation+RecoveryDelegate.h"
 
 #if TARGET_OS_IPHONE
 
-@implementation UIResponder (ErrorPresentation)
+@implementation UIResponder (ErrorPresentationAdditions)
 
 - (void)presentError:(NSError *)error
       modalForWindow:(UIWindow *)window
@@ -30,18 +32,18 @@
     return error;
 }
 
-#else
-@implementation NSResponder (ErrorPresentation)
-#endif
-
-- (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
+- (void)presentError:(NSError *)anError
 {
-    [self.nextResponder presentError: [self willPresentError: error] didPresentHandler: handler];
+    [self presentError: anError didPresentHandler: NULL];
 }
 
-- (void)dismissError
+- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
 {
-    [self.nextResponder dismissError];
+    [self presentError: error didPresentHandler: ^(BOOL recovered) {
+        [[NSInvocation invocationWithRecoveryDelegate: delegate didRecoverSelector: didPresentSelector] invokeWithRecoveryResult: recovered contextInfo: contextInfo];
+    }];
 }
 
 @end
+
+#endif
