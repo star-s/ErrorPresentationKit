@@ -118,6 +118,18 @@
     }
 }
 
+- (void)presentError:(NSError *)error
+            delegate:(id)delegate
+  didPresentSelector:(SEL)didPresentSelector
+         contextInfo:(void *)contextInfo
+{
+    [self presentError: error
+        modalForWindow: self.keyWindow
+              delegate: delegate
+    didPresentSelector: didPresentSelector
+           contextInfo: contextInfo];
+}
+
 @end
 
 #else

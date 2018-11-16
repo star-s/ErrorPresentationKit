@@ -8,7 +8,6 @@
 
 #import "UIResponder+ErrorPresentation.h"
 #import "Responder+ErrorPresentation.h"
-#import "NSInvocation+RecoveryDelegate.h"
 
 #if TARGET_OS_IPHONE
 
@@ -37,11 +36,15 @@
     [self presentError: anError didPresentHandler: NULL];
 }
 
-- (void)presentError:(NSError *)error delegate:(id)delegate didPresentSelector:(SEL)didPresentSelector contextInfo:(void *)contextInfo
+- (void)presentError:(NSError *)error
+            delegate:(id)delegate
+  didPresentSelector:(SEL)didPresentSelector
+         contextInfo:(void *)contextInfo
 {
-    [self presentError: error didPresentHandler: ^(BOOL recovered) {
-        [[NSInvocation invocationWithRecoveryDelegate: delegate didRecoverSelector: didPresentSelector] invokeWithRecoveryResult: recovered contextInfo: contextInfo];
-    }];
+    [self.nextResponder presentError: error
+                            delegate: delegate
+                  didPresentSelector: didPresentSelector
+                         contextInfo: contextInfo];
 }
 
 @end
