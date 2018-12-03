@@ -58,6 +58,11 @@
     return theErrorToPresent;
 }
 
+- (void)presentError:(NSError *)anError
+{
+    [self presentError: anError didPresentHandler: NULL];
+}
+
 - (void)presentError:(NSError *)error didPresentHandler:(void (^)(BOOL recovered))handler;
 {
     NSError *theErrorToPresent = [self willPresentError: error];

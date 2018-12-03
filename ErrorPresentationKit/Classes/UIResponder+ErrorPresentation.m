@@ -33,7 +33,7 @@
 
 - (void)presentError:(NSError *)anError
 {
-    [self presentError: anError didPresentHandler: NULL];
+    [self.nextResponder presentError: [self willPresentError: anError]];
 }
 
 - (void)presentError:(NSError *)error
@@ -41,7 +41,7 @@
   didPresentSelector:(SEL)didPresentSelector
          contextInfo:(void *)contextInfo
 {
-    [self.nextResponder presentError: error
+    [self.nextResponder presentError: [self willPresentError: error]
                             delegate: delegate
                   didPresentSelector: didPresentSelector
                          contextInfo: contextInfo];
