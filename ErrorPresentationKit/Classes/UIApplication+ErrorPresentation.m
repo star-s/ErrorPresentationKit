@@ -10,11 +10,44 @@
 #import "UIResponder+ErrorPresentation.h"
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
-#import "NSObject+ErrorRecoveryAttempting.h"
 
 #if TARGET_OS_IPHONE
 
 #import "UIAlertController+Error.h"
+
+#import <objc/runtime.h>
+
+@interface PrivateRecoveryDelegate : NSObject
+
+@property (nonatomic, weak, readonly) id owner;
+@property (nonatomic, copy) void (^handler)(BOOL);
+
+- (instancetype)initOwner:(id)owner resultHandler:(void (^)(BOOL))handler;
+
+- (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo;
+
+@end
+
+@implementation PrivateRecoveryDelegate
+
+- (instancetype)initOwner:(id)owner resultHandler:(void (^)(BOOL))handler
+{
+    self = [super init];
+    if (self) {
+        _owner = owner;
+        self.handler = handler;
+        objc_setAssociatedObject(owner, (__bridge const void *)(self), self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return self;
+}
+
+- (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo
+{
+    self.handler(didRecover);
+    objc_setAssociatedObject(self.owner, (__bridge const void *)(self), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 @interface NSError (CheckForCancel)
 
@@ -29,11 +62,8 @@
     BOOL result = NO;
     
     if ([self.domain isEqualToString: NSCocoaErrorDomain]) {
-        //
         result = self.code == NSUserCancelledError;
-        
     } else if ([self.domain isEqualToString: NSURLErrorDomain]) {
-        
         result = self.code == NSURLErrorCancelled;
     }
     return result;
@@ -75,10 +105,13 @@
             [agent addRecoveryOption:  [EPKRecoveryOption okRecoveryOption]];
             recoverer = agent;
         }
+        id delegate = handler ? [[PrivateRecoveryDelegate alloc] initOwner: self resultHandler: handler] : nil;
         UIAlertController *alert = [UIAlertController alertWithError: theErrorToPresent handler: ^(NSInteger recoveryOptionIndex) {
-            [recoverer attemptRecoveryFromError: theErrorToPresent optionIndex: recoveryOptionIndex resultHandler: ^(BOOL recovered) {
-                handler ? handler(recovered) : NULL;
-            }];
+            [recoverer attemptRecoveryFromError: theErrorToPresent
+                                    optionIndex: recoveryOptionIndex
+                                       delegate: delegate
+                             didRecoverSelector: @selector(didPresentErrorWithRecovery:contextInfo:)
+                                    contextInfo: NULL];
         }];
         UIViewController *presenter = self.keyWindow.rootViewController;
         while (presenter.presentedViewController) {

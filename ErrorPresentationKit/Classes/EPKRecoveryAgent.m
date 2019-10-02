@@ -9,7 +9,6 @@
 #import "EPKRecoveryAgent.h"
 #import "EPKRecoveryOption.h"
 #import "NSInvocation+RecoveryDelegate.h"
-#import "NSObject+ErrorRecoveryAttempting.h"
 
 @interface EPKRecoveryAgent ()
 

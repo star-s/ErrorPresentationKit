@@ -59,7 +59,7 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7397267EAE49D4C88B97EAF0 /* ErrorPresentationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = ErrorPresentationKit.podspec; path = ../ErrorPresentationKit.podspec; sourceTree = "<group>"; };
+		7397267EAE49D4C88B97EAF0 /* ErrorPresentationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = ErrorPresentationKit.podspec; path = ../ErrorPresentationKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		77C2C8C6E915E24A9717819F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E11017739734076D51A80A2 /* Pods-ErrorPresentationKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErrorPresentationKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ErrorPresentationKit_Tests/Pods-ErrorPresentationKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -300,7 +301,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ErrorPresentationKit_Example/Pods-ErrorPresentationKit_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ErrorPresentationKit_Example/Pods-ErrorPresentationKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ErrorPresentationKit/ErrorPresentationKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -309,7 +310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ErrorPresentationKit_Example/Pods-ErrorPresentationKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ErrorPresentationKit_Example/Pods-ErrorPresentationKit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA1719FC0F626CD56A9F7BBA /* [CP] Check Pods Manifest.lock */ = {

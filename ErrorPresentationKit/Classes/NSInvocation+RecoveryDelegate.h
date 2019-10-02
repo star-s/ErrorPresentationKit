@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSInvocation (RecoveryDelegate)
 
 + (instancetype)invocationWithRecoveryDelegate:(id)delegate
@@ -15,3 +17,5 @@
 - (void)invokeWithRecoveryResult:(BOOL)result contextInfo:(nullable void *)contextInfo;
 
 @end
+
+NS_ASSUME_NONNULL_END
