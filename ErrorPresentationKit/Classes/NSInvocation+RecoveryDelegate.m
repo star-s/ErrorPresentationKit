@@ -11,7 +11,7 @@
 
 + (instancetype)invocationWithRecoveryDelegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector
 {
-    NSInvocation *invocation = [self invocationWithMethodSignature: [delegate methodSignatureForSelector: didRecoverSelector]];
+    NSInvocation *invocation = delegate ? [self invocationWithMethodSignature: [delegate methodSignatureForSelector: didRecoverSelector]] : nil;
     [invocation setSelector: didRecoverSelector];
     [invocation setTarget: delegate];
     return invocation;
